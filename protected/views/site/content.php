@@ -17,98 +17,138 @@
 <body>
 <!-- upgread -->
 <div class="mod-setting-panel">
-	<div class="hd">
-		<h3>QoS状态</h3>
-		<a href="#" data-order="1" class="btn-offon btn-off" id="btnqos"></a>
-	</div>
-	<div class="bd">
-		<div class="mod-qos-off" id="qosoff" style="">
-			<p>QoS是一种智能带宽分配功能，可以帮助你自动为各设备设置限速，<br>让在线视频与网络游戏同时享有畅快体验！</p>
-		</div>
-		<div class="mod-qos" id="qosset" style="">
-			<div class="section" id="speedtest" style="">
-				<div class="ico ico-speedtest"></div>
-				<div class="speedtest">
-					<div class="content" id="speedteststep"></div>
-					<div class="progress"><span id="progressval"></span></div>
-					<div class="btns">
-						<a href="#" id="btnsetbw" class="btn btn-small"><span>确认</span></a>
-						<a href="#" id="btncancelsptest" class="btn btn-small" style="display:none;"><span>手动设置</span></a>
-						<a href="#" id="btnretest" class="btn btn-small"><span>重新检测</span></a>
-					</div>
-				</div>
-			</div>
-			<!--  -->
-			<div class="section" id="sectsetbandwidth">
-				<h4>外网带宽</h4>
-				<div class="speedset clearfix" id="autoget" style="">
-					<div>
-						上传：<span id="upload" class="upband">--</span>Mbps 下载：<span id="download" class="downband">--</span>Mbps
-					</div>
-					<div class="btns">
-						<a href="#" class="btn btn-small" id="speedget"><span>重新测速</span></a>
-						<a href="#" class="btn btn-small" id="speedset"><span>手工修改</span></a>
-					</div>
-				</div>
-				<div class="speedset" id="customset" style="">
-					<form action="api/xqnetwork/set_band" class="form form-small form-qos" name="bandwidth" id="bandwidth" method="post">
-						<div class="item">
-							<label class="k">上传：</label>
-							<span class="v"><input type="text" name="upload" class="text upband"> Mbps</span>
-							<em class="t"></em>
-						</div>
-						<div class="item">
-							<label class="k">下载：</label>
-							<span class="v"><input type="text" name="download" class="text downband"> Mbps</span>
-							<em class="t"></em>
-						</div>
-						<div class="item item-control">
-							<button type="submit" id="submitbandwirdh" class="btn btn-primary btn-small"><span>保存</span></button>
-							<a id="cancelsetbandwidth" href="#" class="btn btn-small"><span>取消</span></a>
-						</div>
-					</form>
-				</div>
-			</div>
-			<!--  -->
-			<div class="section">
-				<h4>QoS模式</h4>
-				<div class="models">
-					<label for="model1"><input type="radio" value="0" name="model" id="model1" class="model"> <span>自动（系统自动进行智能限速）</span></label>
-					<label for="model2"><input type="radio" value="1" name="model" id="model2"  class="model"> <span>手工（用户设置限速规则与优先级）</span></label>
-				</div>
-			</div>
-			<!--  -->
-			<div class="section">
-				<h4>设备列表 <i class="ico ico-refresh" id="refresh" title="刷新当前设备列表"></i></h4>
-				<div id="devloading" style="display:none">加载中...</div>
-				<table class="table table-devices" id="tableauto" style="">
-					<thead>
-						<tr>
-							<th>名称</th>
-							<th>IP和MAC</th>
-							<th>当前网速</th>
-							<th>智能限速</th>
-							<th class="center">限速模式</th>
-						</tr>
-					</thead>
-					<tbody id="devlistauto"></tbody>
-				</table>
-				<table class="table table-devices" id="tablecustom" style="">
-					<thead>
-						<tr>
-							<th>名称</th>
-							<th width="130">IP和MAC</th>
-							<th>当前网速</th>
-							<th width="80" class="center">优先级</th>
-							<th width="130">最大带宽</th>
-							<th width="60" class="center">操作</th>
-						</tr>
-					</thead>
-					<tbody id="devlistcustom"></tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+    <div class="hd">
+        <h3>QoS状态</h3>
+        <a href="#" data-order="1" class="btn-offon btn-on" id="btnqos"></a>
+    </div>
+    <div class="bd">
+        <div class="mod-qos-off" id="qosoff" style="display: none;">
+            <p>QoS是一种智能带宽分配功能，可以帮助你自动为各设备设置限速，<br>让在线视频与网络游戏同时享有畅快体验！</p>
+        </div>
+        <div class="mod-qos" id="qosset" style="display: block;">
+            <div class="section" id="speedtest" style="display: none;">
+                <div class="ico ico-speedtest"></div>
+                <div class="speedtest">
+                    <div class="content" id="speedteststep"><p>你的网络上传带宽为1.24 Mbps</p><p>你的网络下载带宽为12.05 Mbps</p></div>
+                    <div class="progress" style="display: none;"><span id="progressval"></span></div>
+                    <div class="btns" style="display: block;">
+                        <a href="#" id="btnsetbw" class="btn btn-small" data-upload="1.24" data-download="12.05"><span>确认</span></a>
+                        <a href="#" id="btncancelsptest" class="btn btn-small" style="display: none;"><span>手动设置</span></a>
+                        <a href="#" id="btnretest" class="btn btn-small"><span>重新检测</span></a>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <div class="section" id="sectsetbandwidth" style="display: block;">
+                <h4>外网带宽</h4>
+                <div class="speedset clearfix" id="autoget" style="">
+                    <div>
+                        上传：<span id="upload" class="upband">1.24</span>Mbps 下载：<span id="download" class="downband">12.05</span>Mbps
+                    </div>
+                    <div class="btns">
+                        <a href="#" class="btn btn-small" id="speedget"><span>重新测速</span></a>
+                        <a href="#" class="btn btn-small" id="speedset"><span>手工修改</span></a>
+                    </div>
+                </div>
+                <div class="speedset" id="customset" style="display:none;">
+                    <form action="/cgi-bin/luci/;stok=cdd7e9533c86d482abe91e09388d8759/api/xqnetwork/set_band" class="form form-small form-qos" name="bandwidth" id="bandwidth" method="post">
+                        <div class="item">
+                            <label class="k">上传：</label>
+                            <span class="v"><input type="text" name="upload" class="text upband"> Mbps</span>
+                            <em class="t"></em>
+                        </div>
+                        <div class="item">
+                            <label class="k">下载：</label>
+                            <span class="v"><input type="text" name="download" class="text downband"> Mbps</span>
+                            <em class="t"></em>
+                        </div>
+                        <div class="item item-control">
+                            <button type="submit" id="submitbandwirdh" class="btn btn-primary btn-small"><span>保存</span></button>
+                            <a id="cancelsetbandwidth" href="#" class="btn btn-small"><span>取消</span></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--  -->
+            <div class="section" style="display: block;">
+                <h4>QoS模式</h4>
+                <div class="models">
+                    <label for="model1"><input type="radio" value="0" name="model" id="model1" class="model"> <span>自动（系统自动进行智能限速）</span></label>
+                    <label for="model2"><input type="radio" value="1" name="model" id="model2" class="model"> <span>手工（用户设置限速规则与优先级）</span></label>
+                </div>
+            </div>
+            <!--  -->
+            <div class="section" style="display: block;">
+                <h4>设备列表 <i class="ico ico-refresh" id="refresh" title="刷新当前设备列表"></i></h4>
+                <div id="devloading" style="display: none;">加载中...</div>
+                <table class="table table-devices" id="tableauto" style="">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>IP和MAC</th>
+                        <th>当前网速</th>
+                        <th>智能限速</th>
+                        <th class="center">限速模式</th>
+                    </tr>
+                    </thead>
+                    <tbody id="devlistauto">
+                    <tr>
+                        <td>我的iPhone6</td>
+                        <td class="con">192.168.31.190 <br> F0:DB:E2:8E:7A:86</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 0KB/S <br><i class="ico ico-downspeed"></i> 0KB/S</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 171KB/S <br><i class="ico ico-downspeed"></i> 1660.75KB/S</td>
+                        <td class="con center">系统自动</td>
+                    </tr>
+
+                    <tr>
+                        <td>徐晶-iPhone</td>
+                        <td class="con">192.168.31.195 <br> 18:F6:43:8E:81:23</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 0KB/S <br><i class="ico ico-downspeed"></i> 0KB/S</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 171KB/S <br><i class="ico ico-downspeed"></i> 1660.75KB/S</td>
+                        <td class="con center">系统自动</td>
+                    </tr>
+
+                    <tr>
+                        <td>我的Pro</td>
+                        <td class="con">192.168.31.122 <br> 6C:40:08:8E:50:B0</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 0KB/S <br><i class="ico ico-downspeed"></i> 0KB/S</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 171KB/S <br><i class="ico ico-downspeed"></i> 1660.75KB/S</td>
+                        <td class="con center">系统自动</td>
+                    </tr>
+
+                    <tr>
+                        <td>徐晶的Pro</td>
+                        <td class="con">192.168.31.107 <br> D0:A6:37:EA:C9:D3</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 0KB/S <br><i class="ico ico-downspeed"></i> 0KB/S</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 171KB/S <br><i class="ico ico-downspeed"></i> 1660.75KB/S</td>
+                        <td class="con center">系统自动</td>
+                    </tr>
+
+                    <tr>
+                        <td>xujingde-iPad</td>
+                        <td class="con">192.168.31.209 <br> C8:F6:50:1A:03:C3</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 0KB/S <br><i class="ico ico-downspeed"></i> 0KB/S</td>
+                        <td class="con"><i class="ico ico-upspeed"></i> 171KB/S <br><i class="ico ico-downspeed"></i> 1660.75KB/S</td>
+                        <td class="con center">系统自动</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-devices" id="tablecustom" style="display: none;">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th width="130">IP和MAC</th>
+                        <th>当前网速</th>
+                        <th width="80" class="center">优先级</th>
+                        <th width="130">最大带宽</th>
+                        <th width="60" class="center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="devlistcustom"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 <script type="tmpl/html" id="tpldevlist1">
 <tr>

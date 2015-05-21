@@ -1,3 +1,6 @@
+<?php
+Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
+?>
 <div id="bd-hd">在这里查看目前接入路由器的设备，并对设备进行管理
     <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="btn btn-small refresh"
        id="btnRefresh"><span>刷新</span></a>
@@ -49,7 +52,7 @@
                             <tbody>
                                 <tr>
                                     <td class="s00">
-                                        <img class="company-icon" src="./index/device_list_apple.png">
+                                        <img class="company-icon" src="<?php echo Util::getImgPath();?>device_list_apple.png">
                                     </td>
                                     <td class="s01">
                                         <div class="name">
@@ -80,7 +83,7 @@
                             <tbody>
                                 <tr>
                                     <td class="s00">
-                                        <img class="company-icon" src="./index/device_list_apple.png">
+                                        <img class="company-icon" src="<?php echo Util::getImgPath();?>device_list_apple.png">
                                     </td>
                                     <td class="s01">
                                         <div class="name">
@@ -111,7 +114,7 @@
                             <tbody>
                                 <tr>
                                     <td class="s00">
-                                        <img class="company-icon" src="./index/device_list_apple.png">
+                                        <img class="company-icon" src="<?php echo Util::getImgPath();?>device_list_apple.png">
                                     </td>
                                     <td class="s01">
                                         <div class="name">
@@ -142,7 +145,7 @@
                             <tbody>
                                 <tr>
                                     <td class="s00">
-                                        <img class="company-icon" src="./index/device_list_apple.png">
+                                        <img class="company-icon" src="<?php echo Util::getImgPath();?>device_list_apple.png">
                                     </td>
                                     <td class="s01">
                                         <div class="name">

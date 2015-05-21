@@ -1,3 +1,6 @@
+<?php
+Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.index.css');
+?>
 <div id="netdetecte" class="mod-sect mod-net-check net-check-warn" style="display:none;">
     <p class="msg">
         <i class="ico ico-check-tips"></i>
@@ -11,7 +14,7 @@
             <tr>
                 <td width="273">
                     <div class="pic">
-                        <img src="./index/pic_rt.png" alt="">
+                        <img src="<?php echo Util::getImgPath();?>v2/pic_rt.png" alt="">
                     </div>
                 </td>
                 <td>

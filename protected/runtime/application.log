@@ -1,0 +1,255 @@
+2015/05/21 21:40:01 [error] [php] Memcache::get(): Server 10.199.168.255 (tcp 11211) failed with: Operation timed out (60) (/Users/zouliming/wwwroot/yiiframework/caching/CMemCache.php:149)
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CUrlManager.php(219): CMemCache->get()
+#1 /Users/zouliming/wwwroot/yiiframework/web/CUrlManager.php(206): CUrlManager->processRules()
+#2 /Users/zouliming/wwwroot/yiiframework/base/CModule.php(394): CUrlManager->init()
+#3 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(530): CWebApplication->getComponent()
+#4 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(140): CWebApplication->getUrlManager()
+#5 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#6 /Users/zouliming/wwwroot/admin/index.php(20): CWebApplication->run()
+REQUEST_URI=/
+2015/05/21 21:40:04 [error] [php] Memcache::get(): Server 10.199.168.255 (tcp 11211) failed with: Operation timed out (60) (/Users/zouliming/wwwroot/yiiframework/caching/CMemCache.php:149)
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CUrlManager.php(219): CMemCache->get()
+#1 /Users/zouliming/wwwroot/yiiframework/web/CUrlManager.php(206): CUrlManager->processRules()
+#2 /Users/zouliming/wwwroot/yiiframework/base/CModule.php(394): CUrlManager->init()
+#3 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(530): CWebApplication->getComponent()
+#4 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(140): CWebApplication->getUrlManager()
+#5 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#6 /Users/zouliming/wwwroot/admin/index.php(20): CWebApplication->run()
+REQUEST_URI=/favicon.ico
+2015/05/21 21:42:39 [error] [php] Memcache::get(): Server 127.0.0.1 (tcp 11211) failed with: Connection refused (61) (/Users/zouliming/wwwroot/yiiframework/caching/CMemCache.php:149)
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CUrlManager.php(219): CMemCache->get()
+#1 /Users/zouliming/wwwroot/yiiframework/web/CUrlManager.php(206): CUrlManager->processRules()
+#2 /Users/zouliming/wwwroot/yiiframework/base/CModule.php(394): CUrlManager->init()
+#3 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(530): CWebApplication->getComponent()
+#4 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(140): CWebApplication->getUrlManager()
+#5 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#6 /Users/zouliming/wwwroot/admin/index.php(20): CWebApplication->run()
+REQUEST_URI=/
+2015/05/21 21:42:39 [error] [php] Memcache::get(): Server 127.0.0.1 (tcp 11211) failed with: Connection refused (61) (/Users/zouliming/wwwroot/yiiframework/caching/CMemCache.php:149)
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CUrlManager.php(219): CMemCache->get()
+#1 /Users/zouliming/wwwroot/yiiframework/web/CUrlManager.php(206): CUrlManager->processRules()
+#2 /Users/zouliming/wwwroot/yiiframework/base/CModule.php(394): CUrlManager->init()
+#3 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(530): CWebApplication->getComponent()
+#4 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(140): CWebApplication->getUrlManager()
+#5 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#6 /Users/zouliming/wwwroot/admin/index.php(20): CWebApplication->run()
+REQUEST_URI=/favicon.ico
+2015/05/21 22:00:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://admin.zouliming.com/
+---
+2015/05/21 22:07:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/bg_nav_on.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/bg_nav_o...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/bg_nav_on.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.setting.css?v=0.0.3
+---
+2015/05/21 22:13:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/bg_nav_on.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/bg_nav_o...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/bg_nav_on.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.setting.css?v=0.0.3
+---
+2015/05/21 22:21:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/bg_diskused_bar.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/bg_disku...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/bg_diskused_bar.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.index.css
+---
+2015/05/21 22:21:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/ico_status.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/ico_stat...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/ico_status.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.index.css
+---
+2015/05/21 22:21:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/bg_nav_on.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/bg_nav_o...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/bg_nav_on.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.setting.css?v=0.0.3
+---
+2015/05/21 22:24:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/bg_diskused_bar.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/bg_disku...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/bg_diskused_bar.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.index.css
+---
+2015/05/21 22:24:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/ico_status.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/ico_stat...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/ico_status.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.index.css
+---
+2015/05/21 22:24:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/bg_nav_on.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/bg_nav_o...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/bg_nav_on.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.setting.css?v=0.0.3
+---
+2015/05/21 22:24:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/bg_diskused_bar.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/bg_disku...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/bg_diskused_bar.png
+---
+2015/05/21 22:25:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/ico_status.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/ico_stat...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/ico_status.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.index.css
+---
+2015/05/21 22:25:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/bg_nav_on.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/bg_nav_o...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/bg_nav_on.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.setting.css?v=0.0.3
+---
+2015/05/21 22:29:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/ico_device.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/ico_devi...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/ico_device.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.manage.css
+---
+2015/05/21 22:29:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/bt_edit.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/bt_edit.png')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/bt_edit.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.manage.css
+---
+2015/05/21 22:31:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/bt_edit.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/bt_edit.png')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/bt_edit.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.manage.css
+---
+2015/05/21 22:31:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/bt_edit.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/bt_edit.png')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/bt_edit.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.manage.css
+---
+2015/05/21 22:33:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/bt_edit.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/bt_edit.png')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/bt_edit.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.manage.css
+---
+2015/05/21 22:40:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/ico_speed_testing.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/ico_spee...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/ico_speed_testing.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.set.qos.css?v=0.0.3
+---
+2015/05/21 22:40:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/progress.gif"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/progress...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/progress.gif
+HTTP_REFERER=http://admin.zouliming.com/css/page.set.qos.css?v=0.0.3
+---
+2015/05/21 22:40:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/ico_refresh.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/ico_refr...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/ico_refresh.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.set.qos.css?v=0.0.3
+---
+2015/05/21 22:44:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/ico_updown.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/ico_updown....')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/ico_updown.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.set.qos.css?v=0.0.3
+---
+2015/05/21 22:44:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/ico_refresh.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/ico_refr...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/ico_refresh.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.set.qos.css?v=0.0.3
+---
+2015/05/21 22:46:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/ico_updown.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/ico_updown....')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/ico_updown.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.set.qos.css?v=0.0.3
+---
+2015/05/21 22:46:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "img/v2/ico_refresh.png"。' in /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/zouliming/wwwroot/yiiframework/web/CWebApplication.php(141): CWebApplication->runController('img/v2/ico_refr...')
+#1 /Users/zouliming/wwwroot/yiiframework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /Users/zouliming/wwwroot/admin/index.php(20): CApplication->run()
+#3 {main}
+REQUEST_URI=/img/v2/ico_refresh.png
+HTTP_REFERER=http://admin.zouliming.com/css/page.set.qos.css?v=0.0.3
+---
