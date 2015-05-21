@@ -5,7 +5,7 @@
                 <h3 class="nav-hd"><span>路由器模块</span><a href="#" class="bt-onoff bt-on"></a></h3>
 
                 <ul class="isopen">
-                    <li><a target="setting" href="#!status">查看状态</a></li>
+                    <li><a target="setting" href="#!content">查看内容</a></li>
                 </ul>
             </li>
 

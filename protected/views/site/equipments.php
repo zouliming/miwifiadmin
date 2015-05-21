@@ -1,126 +1,176 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
-    <!--<![endif]-->
-
-    <head>
-        <meta content="edge" http-equiv="X-UA-Compatible" />
-        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-        <meta content="width=1024" name="viewport" /><!--[if lt IE 7]>
-      <meta http-equiv="refresh" content="0; url=http://miwifi.com/blockie6.html" />
-      <![endif]-->
-
-        <title>小米路由器</title>
-        <link type="text/css" href="<?php echo Util::getCssPath();?>page.set.st.css?v=0.0.3" rel="stylesheet" />
-        <link href="<?php echo Util::getCssPath();?>dialog.css?v=0.0.3" rel="stylesheet" type="text/css" />
-    </head>
-
-    <body>
-        <div class="mod-setting-panel">
-            <div class="hd">
-                <h3>系统状态</h3>
-            </div>
-
-            <div class="bd">
-                <div class="mod-set-status">
-                    <div class="group">
-                        <h3>版本信息</h3>
-
-                        <div class="cont">
-                            <ul class="list">
-                                <li><span class="k">当前软件版本：</span><span class="v sys-version">1.0.13</span></li>
-
-                                <li><span class="k">当前硬件版本：</span><span class="v">Ver.B</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="group">
-                        <h3>LAN口状态</h3>
-
-                        <div class="cont">
-                            <ul class="list">
-                                <li><span class="k">MAC地址：</span><span class="vl lan-mac">8C:BE:BE:28:EE:CF</span></li>
-
-                                <li><span class="k">IP地址：</span><span class="v lan-ip">192.168.31.1</span></li>
-
-                                <li><span class="k">子网掩码：</span><span class="v lan-mask">255.255.255.0</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="group">
-                        <h3>无线状态</h3>
-
-                        <div class="cont">
-                            <ul class="list">
-                                <li><span class="k">WiFi 2.4G：</span><span class="v wifi1-st">开启</span></li>
-
-                                <li><span class="k">SSID：</span><span class="v wifi1-ssid">CMCC-China</span></li>
-
-                                <li><span class="k">信道：</span><span class="v wifi1-channel">3(20M)</span></li>
-
-                                <li><span class="k">模式：</span><span class="v wifi1-mode">Master</span></li><!-- <li><span class="k">频段带宽：</span><span class="v"></span></li>
-                                          <li><span class="k">MAC地址：</span><span class="v"></span></li>
-                                          <li><span class="k">WDS状态：</span><span class="v"></span></li> -->
-                            </ul>
-
-                            <ul class="list">
-                                <li><span class="k">WiFi 5G：</span><span class="v wifi2-st">开启</span></li>
-
-                                <li><span class="k">SSID：</span><span class="v wifi2-ssid">CMCC-China_5G</span></li>
-
-                                <li><span class="k">信道：</span><span class="v wifi2-channel">149(80M)</span></li>
-
-                                <li><span class="k">模式：</span><span class="v wifi2-mode">Master</span></li><!-- <li><span class="k">频段带宽：</span><span class="v"></span></li>
-                                          <li><span class="k">MAC地址：</span><span class="v"></span></li>
-                                          <li><span class="k">WDS状态：</span><span class="v"></span></li> -->
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="group">
-                        <h3>WAN口状态</h3>
-
-                        <div class="cont">
-                            <ul class="list">
-                                <li><span class="k">MAC地址：</span><span class="v wan-mac">8C:BE:BE:28:EE:CF</span></li>
-
-                                <li><span class="k">IP地址：</span><span class="v wan-ip">183.195.37.96</span></li>
-
-                                <li><span class="k">连接类型：</span><span class="v wan-type">PPPOE</span></li>
-
-                                <li><span class="k">子网掩码：</span><span class="v wan-mask">255.255.255.255</span></li>
-
-                                <li><span class="k">网关：</span><span class="v wan-gateway">183.195.39.254</span></li>
-
-                                <li><span class="k">DNS服务器：</span><span class="v wan-peerdns">211.136.150.66</span></li>
-
-                                <li><span class="k">备选DNS：</span><span class="v wan-dns">211.136.112.50</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--[if lt IE 7]>
-      <script>
-      try{ document.execCommand("BackgroundImageCache",false,true);} catch(e){}
-      </script>
-      <![endif]-->
-
-        <?php 
-        $this->beginContent('xiaomibind');
-        $this->endContent();
-        ?>
-        <script src="<?php echo Util::getJsPath(); ?>jquery-1.8.3.js" type="text/javascript">
-        </script><script src="<?php echo Util::getJsPath(); ?>qwrap.js" type="text/javascript">
-        </script><script src="<?php echo Util::getJsPath(); ?>jquery.form.js" type="text/javascript">
-        </script><script src="<?php echo Util::getJsPath(); ?>utf8.js" type="text/javascript">
-        </script><script src="<?php echo Util::getJsPath(); ?>validate.js" type="text/javascript">
-        </script><script src="<?php echo Util::getJsPath(); ?>jquery.dialog.js" type="text/javascript">
-        </script><script src="<?php echo Util::getJsPath(); ?>jquery.cookie.js" type="text/javascript">
-        </script><script src="<?php echo Util::getJsPath(); ?>selectbeautify.js" type="text/javascript">
-        </script><script src="<?php echo Util::getJsPath(); ?>util.js" type="text/javascript">
-        </script>
-    </body>
-</html>
+<div id="bd-hd">在这里查看目前接入路由器的设备，并对设备进行管理
+    <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="btn btn-small refresh"
+       id="btnRefresh"><span>刷新</span></a>
+</div>
+<div class="mod-device">
+    <div class="bd">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="s0">当前连接终端</th>
+                    <th class="s1">互联网访问</th>
+                    <th class="s2">全盘访问</th>
+                </tr>
+            </thead>
+            <tbody id="device_list">
+                <tr class="list-item">
+                    <td class="s0">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="s00">
+                                        <i class="ico ico-devices ico-devices-4"></i>
+                                    </td>
+                                    <td class="s01">
+                                        <div class="name">
+                                            <span class="name-show">我的Pro</span>
+                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                               data-name="我的Pro" data-mac="6C:40:08:8E:50:B0"></a>
+                                            <div class="name-edit"></div>
+                                        </div>
+                                        <p class="muted">已连接：59分30秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：0KB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：1.79GB
+                                            <br>IP地址：192.168.31.122&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：6C:40:08:8E:50:B0</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="s1">
+                        <b>本机</b>
+                    </td>
+                    <td class="s2">
+                        <a data-mac="6C:40:08:8E:50:B0" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-on act-data-disable"></a>
+                    </td>
+                </tr>
+                <tr class="list-item">
+                    <td class="s0">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="s00">
+                                        <img class="company-icon" src="./index/device_list_apple.png">
+                                    </td>
+                                    <td class="s01">
+                                        <div class="name">
+                                            <span class="name-show">徐晶-iPhone</span>
+                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                               data-name="徐晶-iPhone" data-mac="18:F6:43:8E:81:23"></a>
+                                            <div class="name-edit"></div>
+                                        </div>
+                                        <p class="muted">已连接：34分50秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：0KB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：3.15MB
+                                            <br>IP地址：192.168.31.195&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：18:F6:43:8E:81:23</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="s1">
+                        <a data-mac="18:F6:43:8E:81:23" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-on act-kick-out"></a>
+                    </td>
+                    <td class="s2">
+                        <a data-mac="18:F6:43:8E:81:23" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-off act-data-enable"></a>
+                    </td>
+                </tr>
+                <tr class="list-item">
+                    <td class="s0">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="s00">
+                                        <img class="company-icon" src="./index/device_list_apple.png">
+                                    </td>
+                                    <td class="s01">
+                                        <div class="name">
+                                            <span class="name-show">我的iPhone6</span>
+                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                               data-name="我的iPhone6" data-mac="F0:DB:E2:8E:7A:86"></a>
+                                            <div class="name-edit"></div>
+                                        </div>
+                                        <p class="muted">已连接：1小时15分30秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：0KB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：161.88MB
+                                            <br>IP地址：192.168.31.190&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：F0:DB:E2:8E:7A:86</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="s1">
+                        <a data-mac="F0:DB:E2:8E:7A:86" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-on act-kick-out"></a>
+                    </td>
+                    <td class="s2">
+                        <a data-mac="F0:DB:E2:8E:7A:86" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-on act-data-disable"></a>
+                    </td>
+                </tr>
+                <tr class="list-item">
+                    <td class="s0">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="s00">
+                                        <img class="company-icon" src="./index/device_list_apple.png">
+                                    </td>
+                                    <td class="s01">
+                                        <div class="name">
+                                            <span class="name-show">徐晶的Pro</span>
+                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                               data-name="徐晶的Pro" data-mac="D0:A6:37:EA:C9:D3"></a>
+                                            <div class="name-edit"></div>
+                                        </div>
+                                        <p class="muted">已连接：39分54秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：1.29MB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：413.16MB
+                                            <br>IP地址：192.168.31.107&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 2.4G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：D0:A6:37:EA:C9:D3</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="s1">
+                        <a data-mac="D0:A6:37:EA:C9:D3" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-on act-kick-out"></a>
+                    </td>
+                    <td class="s2">
+                        <a data-mac="D0:A6:37:EA:C9:D3" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-off act-data-enable"></a>
+                    </td>
+                </tr>
+                <tr class="list-item">
+                    <td class="s0">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="s00">
+                                        <img class="company-icon" src="./index/device_list_apple.png">
+                                    </td>
+                                    <td class="s01">
+                                        <div class="name">
+                                            <span class="name-show">xujingde-iPad</span>
+                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                               data-name="xujingde-iPad" data-mac="C8:F6:50:1A:03:C3"></a>
+                                            <div class="name-edit"></div>
+                                        </div>
+                                        <p class="muted">已连接：21小时8分41秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：0KB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：7.7MB
+                                            <br>IP地址：192.168.31.209&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：C8:F6:50:1A:03:C3</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td class="s1">
+                        <a data-mac="C8:F6:50:1A:03:C3" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-on act-kick-out"></a>
+                    </td>
+                    <td class="s2">
+                        <a data-mac="C8:F6:50:1A:03:C3" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                           class="btn-offon btn-on act-data-disable"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+        var navCurrent = '.equipments';
+</script>

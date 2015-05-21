@@ -181,6 +181,7 @@
         ?>
         <script type="text/javascript">
             //是否绑定全局变量
+            //判断用户是否登录，如果登录了，就获取用户的头像，用户的名称，然后替换掉head里的右上角模块，使用到了模板技术
             global_event.isBinded = true;
             $(global_event).on('getLogininfo', function (evt, data) {
                     var psp = global_event.pspGet();

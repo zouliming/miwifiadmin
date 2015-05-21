@@ -185,7 +185,7 @@
         //二级菜单链接
         $(global_event).on('set:map', function (evt, data) {
                 var urlMap = {
-                        'status': '/site/status',
+                        'content': '/site/content',
                 };
                 global_event.set = {
                         'urlMap': urlMap
@@ -323,7 +323,7 @@
                         global_event.isRequestUplog = false;
                 })
         });
-        
+
         $(global_event).on('set:downloadConfig', function (evt, data) {
                 var request_date = {};
                 $.getJSON('api/xqsystem/config_recovery', request_date, function (rsp)
@@ -334,5 +334,12 @@
                                 $.lightalert().setContent(rsp.msg).show();
                         }
                 })
+        });
+        $(function () {
+                //nav,一级菜单设置active状态
+                if (typeof (navCurrent) !== "undefined") {
+                        $('#nav li').removeClass('active');
+                        $('#nav').find(navCurrent).addClass('active');
+                }
         });
 </script>

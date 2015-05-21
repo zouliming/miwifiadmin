@@ -1,7 +1,7 @@
 <?php
 
 class asideMenuWidget extends CWidget {
-        public $asideMenuItems = array();
+        public $asideMenu = array();
         
         public function init() {
                 //当视图中执行$this->beginWidget()时候会执行这个方法  

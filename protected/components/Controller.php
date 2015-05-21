@@ -23,7 +23,7 @@ class Controller extends CController {
          * for more details on how to specify this property.
          */
         public $breadcrumbs = array();
-        public $showSecondMenu = false;
+        public $asideMenu = array();
         protected $request = array();
 
         public function __construct($id, $module = null) {

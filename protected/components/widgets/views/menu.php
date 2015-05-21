@@ -1,35 +1,23 @@
-
 <div id="nav">
-    <script type="text/javascript">
-            var navCurrent = '.setting';
-    </script>
-
     <div class="list">
         <ul>
-            <li class="status active">
-                <a href="/site/status">
-                    <i class="ico ico-nav-1"></i>
-                    <span>路由状态</span>
+            <?php
+            $navCur = "";
+            foreach(menuWidget::$menuConfig as $key=>$info){
+                    if($navCur=="" && $info['url']==$url){
+                            $navCur = $info['class'];
+                    }
+            ?>
+            <li class="<?php echo $info['class'];?>">
+                <a href="<?php echo $info['url'];?>">
+                    <i class="ico ico-nav-<?php echo $key+1;?>"></i>
+                    <span><?php echo $info['title'];?></span>
                 </a>
             </li>
-
-            <li class="manager">
-                <a href="/site/content">
-                    <i class="ico ico-nav-2"></i><span>内容</span>
-                </a>
-            </li>
-
-            <li class="netset">
-                <a href="/site/netset">
-                    <i class="ico ico-nav-3"></i><span>网络设置</span>
-                </a>
-            </li>
-
-            <li class="setting">
-                <a href="/site/sysset">
-                    <i class="ico ico-nav-4"></i><span>系统设置</span>
-                </a>
-            </li>
+            <?php } ?>
         </ul>
     </div>
+    <script type="text/javascript">
+            var navCurrent = '.<?php echo $navCur;?>';
+    </script>
 </div>
