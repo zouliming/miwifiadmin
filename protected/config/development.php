@@ -50,15 +50,7 @@ return array(
                         //'errorAction' => 'site/error',
                 //),
                 'db' => array(
-                        'connectionString' => "mysql:host=127.0.0.1;dbname=vip_viplux",
-                        'emulatePrepare' => true,
-                        'username' => "vipshop",
-                        'password' => "123456",
-                        'charset' => 'utf8',
-                ),
-                'dbslave' => array(
-                        'class'=>'CDbConnection',
-                        'connectionString' => "mysql:host=127.0.0.1;dbname=vip_viplux",
+                        'connectionString' => "mysql:host=127.0.0.1;dbname=miwifiadmin",
                         'emulatePrepare' => true,
                         'username' => "vipshop",
                         'password' => "123456",
@@ -80,7 +72,7 @@ return array(
                         'class' => 'CMemCache',
                         'servers' => array(
                                 array(
-                                        'host' => "127.0.0.1",
+                                        'host' => "10.199.168.255",
                                         'port' => "11211",
                                 )
                         )

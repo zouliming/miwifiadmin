@@ -2,7 +2,7 @@
 Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
 ?>
 <div id="bd-hd">在这里查看目前接入路由器的设备，并对设备进行管理
-    <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="btn btn-small refresh"
+    <a href="#" class="btn btn-small refresh"
        id="btnRefresh"><span>刷新</span></a>
 </div>
 <div class="mod-device">
@@ -27,7 +27,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                                     <td class="s01">
                                         <div class="name">
                                             <span class="name-show">我的Pro</span>
-                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                            <a href="#" class="ico-rename act-edit"
                                                data-name="我的Pro" data-mac="6C:40:08:8E:50:B0"></a>
                                             <div class="name-edit"></div>
                                         </div>
@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                         <b>本机</b>
                     </td>
                     <td class="s2">
-                        <a data-mac="6C:40:08:8E:50:B0" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="6C:40:08:8E:50:B0" href="#"
                            class="btn-offon btn-on act-data-disable"></a>
                     </td>
                 </tr>
@@ -57,7 +57,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                                     <td class="s01">
                                         <div class="name">
                                             <span class="name-show">徐晶-iPhone</span>
-                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                            <a href="#" class="ico-rename act-edit"
                                                data-name="徐晶-iPhone" data-mac="18:F6:43:8E:81:23"></a>
                                             <div class="name-edit"></div>
                                         </div>
@@ -69,11 +69,11 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                         </table>
                     </td>
                     <td class="s1">
-                        <a data-mac="18:F6:43:8E:81:23" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="18:F6:43:8E:81:23" href="#"
                            class="btn-offon btn-on act-kick-out"></a>
                     </td>
                     <td class="s2">
-                        <a data-mac="18:F6:43:8E:81:23" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="18:F6:43:8E:81:23" href="#"
                            class="btn-offon btn-off act-data-enable"></a>
                     </td>
                 </tr>
@@ -88,7 +88,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                                     <td class="s01">
                                         <div class="name">
                                             <span class="name-show">我的iPhone6</span>
-                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                            <a href="#" class="ico-rename act-edit"
                                                data-name="我的iPhone6" data-mac="F0:DB:E2:8E:7A:86"></a>
                                             <div class="name-edit"></div>
                                         </div>
@@ -100,11 +100,11 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                         </table>
                     </td>
                     <td class="s1">
-                        <a data-mac="F0:DB:E2:8E:7A:86" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="F0:DB:E2:8E:7A:86" href="#"
                            class="btn-offon btn-on act-kick-out"></a>
                     </td>
                     <td class="s2">
-                        <a data-mac="F0:DB:E2:8E:7A:86" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="F0:DB:E2:8E:7A:86" href="#"
                            class="btn-offon btn-on act-data-disable"></a>
                     </td>
                 </tr>
@@ -119,7 +119,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                                     <td class="s01">
                                         <div class="name">
                                             <span class="name-show">徐晶的Pro</span>
-                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                            <a href="#" class="ico-rename act-edit"
                                                data-name="徐晶的Pro" data-mac="D0:A6:37:EA:C9:D3"></a>
                                             <div class="name-edit"></div>
                                         </div>
@@ -131,11 +131,11 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                         </table>
                     </td>
                     <td class="s1">
-                        <a data-mac="D0:A6:37:EA:C9:D3" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="D0:A6:37:EA:C9:D3" href="#"
                            class="btn-offon btn-on act-kick-out"></a>
                     </td>
                     <td class="s2">
-                        <a data-mac="D0:A6:37:EA:C9:D3" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="D0:A6:37:EA:C9:D3" href="#"
                            class="btn-offon btn-off act-data-enable"></a>
                     </td>
                 </tr>
@@ -150,7 +150,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                                     <td class="s01">
                                         <div class="name">
                                             <span class="name-show">xujingde-iPad</span>
-                                            <a href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#" class="ico-rename act-edit"
+                                            <a href="#" class="ico-rename act-edit"
                                                data-name="xujingde-iPad" data-mac="C8:F6:50:1A:03:C3"></a>
                                             <div class="name-edit"></div>
                                         </div>
@@ -162,11 +162,11 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                         </table>
                     </td>
                     <td class="s1">
-                        <a data-mac="C8:F6:50:1A:03:C3" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="C8:F6:50:1A:03:C3" href="#"
                            class="btn-offon btn-on act-kick-out"></a>
                     </td>
                     <td class="s2">
-                        <a data-mac="C8:F6:50:1A:03:C3" href="http://miwifi.com/cgi-bin/luci/;stok=9b52c43e1b81353d9d122646717957a7/web/manager#"
+                        <a data-mac="C8:F6:50:1A:03:C3" href="#"
                            class="btn-offon btn-on act-data-disable"></a>
                     </td>
                 </tr>

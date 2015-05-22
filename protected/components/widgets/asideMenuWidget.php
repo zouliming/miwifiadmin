@@ -14,7 +14,7 @@ class asideMenuWidget extends CWidget {
                 //注意widget的视图是放在跟widget同级的views目录下面，例如下面的视图会放置在  
                 //  /<span style="font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px; line-height: 25.1875px;">components</span>/widgets/test/views/test.php  
                 $this->render('asideMenu', array(
-                        'str' => 'WIDGET视图变量',
+                        'menus' => $this->asideMenu,
                 ));
         }
 

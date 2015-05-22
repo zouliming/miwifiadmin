@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="speedset" id="customset" style="display:none;">
-                    <form action="/cgi-bin/luci/;stok=cdd7e9533c86d482abe91e09388d8759/api/xqnetwork/set_band" class="form form-small form-qos" name="bandwidth" id="bandwidth" method="post">
+                    <form action="" class="form form-small form-qos" name="bandwidth" id="bandwidth" method="post">
                         <div class="item">
                             <label class="k">上传：</label>
                             <span class="v"><input type="text" name="upload" class="text upband"> Mbps</span>
@@ -332,7 +332,7 @@ var modelQos = (function(){
 			getupspeed = function(){
 				return $.ajax({
 					type: 'GET',
-					url: 'api/xqnetdetect/uploadspeed',
+					url: '/api/uploadspeed',
 					dataType: 'json',
 					xhrFields: {
 						onprogress: function (event) {
@@ -344,7 +344,7 @@ var modelQos = (function(){
 			getdownspeed = function(){
 				return $.ajax({
 					type: 'GET',
-					url: 'api/xqnetdetect/netspeed',
+					url: '/api/netspeed',
 					dataType: 'json',
 					xhrFields: {
 						onprogress: function (event) {
@@ -477,11 +477,16 @@ var modelQos = (function(){
 			e.preventDefault();
 			var st = $(this).hasClass('btn-on') ? 0 : 1,
 				btn = this;
-			$.getJSON('api/xqnetwork/qos_switch', {'on': st}, function(rsp){
-				if (rsp.code == 0) {
-					location.reload(1);
-				}
-			});
+//			$.getJSON('api/xqnetwork/qos_switch', {'on': st}, function(rsp){
+//				if (rsp.code == 0) {
+//					location.reload(1);
+//				}
+//			});
+                        if(st){
+                                btn.className = 'btn-offon btn-on';
+                        }else{
+                                btn.className = 'btn-offon btn-off';
+                        }
 		});
 	}
 
@@ -501,7 +506,7 @@ var modelQos = (function(){
 			$( '.speedset' ).hide();
 			$( '#customset' ).show();
 		} );
-
+                //重新测速
 		$( '#speedget' ).on( 'click', function( e ){
 			e.preventDefault();
 			getBandwidth( 2 );
@@ -511,7 +516,7 @@ var modelQos = (function(){
 			var checked = $( e.target ).prop( 'checked' ),
 				val = $( '.model:checked' ).val();
 			if ( checked ) {
-				$.getJSON( 'api/xqnetwork/qos_mode', { mode: val }, function( rsp ){
+				$.getJSON( '/api/qos_mode', { mode: val }, function( rsp ){
 					if ( rsp.code === 0 ) {
 						qosStatus();
 					} else {
@@ -617,7 +622,7 @@ var modelQos = (function(){
 				downband = $(this).attr('data-download');
 			$.ajax({
 				type: 'POST',
-				url: 'api/xqnetwork/set_band',
+				url: '/api/set_band',
 				data: {upload: upband, download: downband},
 				dataType: 'json'
 			}).done(function( rsp ){
@@ -654,7 +659,7 @@ var modelQos = (function(){
 		}
 	}
 }());
-//$(function(){
-//	modelQos.init();
-//});
+$(function(){
+	modelQos.init();
+});
 </script>

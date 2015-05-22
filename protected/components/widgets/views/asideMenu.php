@@ -1,14 +1,22 @@
 <div class="aside">
     <div class="mod-setting-nav">
         <ul class="nav-list clearfix">
-            <li class="nav-item">
-                <h3 class="nav-hd"><span>路由器模块</span><a href="#" class="bt-onoff bt-on"></a></h3>
-
-                <ul class="isopen">
-                    <li><a target="setting" href="#!content">查看内容</a></li>
-                </ul>
-            </li>
-
+                <?php foreach ($menus as $k => $item) { ?>
+                    <li class="nav-item">
+                        <h3 class="nav-hd"><span><?php echo $item['sub']; ?></span><a href="#" class="bt-onoff bt-off"></a></h3>
+                        <?php
+                        //如果子菜单在这里，就是class="isopen"，如果不在，就是style="display:none"
+                        ?>
+                        <ul style="display: none">
+                                <?php
+                                foreach ($item['children'] as $menu) {
+                                        ?>
+                                    <li><a target="setting" href="#!<?php echo $menu['href']; ?>"><?php echo $menu['title']; ?></a></li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+            <?php } ?>
+        <!--template demo
             <li class="nav-item">
                 <h3 class="nav-hd"><span>高级功能</span><a href="#" class="bt-onoff bt-off"></a></h3>
 
@@ -20,28 +28,7 @@
                     <li><a target="setting" href="#!pro/developer">开发者选项</a></li>
                 </ul>
             </li>
-
-            <li class="nav-item">
-                <h3 class="nav-hd"><span>系统功能</span><a href="#" class="bt-onoff bt-on"></a></h3>
-
-                <ul class="isopen">
-                    <li class="active"><a target="setting" href="#!upgrade"><span>系统升级</span></a></li>
-
-                    <li><a target="setting" href="#!log">上传日志</a></li>
-
-                    <li><a target="setting" href="#!reboot">关机 & 重启</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <h3 class="nav-hd"><span>重置与恢复</span><a href="#" class="bt-onoff bt-on"></a></h3>
-
-                <ul class="isopen">
-                    <li><a href="#!diskformat" target="setting">格式化硬盘</a></li>
-
-                    <li><a target="setting" href="#!reset"><span>恢复出厂设置</span></a></li>
-                </ul>
-            </li>
+        -->
         </ul>
     </div>
 </div>
