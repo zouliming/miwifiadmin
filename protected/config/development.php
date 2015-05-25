@@ -2,7 +2,7 @@
 
 return array(
         'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-        'name' => 'm.viplux.com',
+        'name' => 'miwifiadmin.com',
         'language' => 'zh_cn',
         // preloading 'log' component
         'preload' => array('log'),
@@ -52,8 +52,8 @@ return array(
                 'db' => array(
                         'connectionString' => "mysql:host=127.0.0.1;dbname=miwifiadmin",
                         'emulatePrepare' => true,
-                        'username' => "vipshop",
-                        'password' => "123456",
+                        'username' => "",
+                        'password' => "",
                         'charset' => 'utf8',
                 ),
                 'log' => array(
