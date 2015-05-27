@@ -52,7 +52,7 @@ return array(
                 'db' => array(
                         'connectionString' => "mysql:host=127.0.0.1;dbname=miwifiadmin",
                         'emulatePrepare' => true,
-                        'username' => "",
+                        'username' => "root",
                         'password' => "",
                         'charset' => 'utf8',
                 ),
@@ -72,7 +72,7 @@ return array(
                         'class' => 'CMemCache',
                         'servers' => array(
                                 array(
-                                        'host' => "127.0.0.1",
+                                        'host' => "10.199.168.255",
                                         'port' => "11211",
                                 )
                         )

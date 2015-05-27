@@ -32,3 +32,6 @@
         </ul>
     </div>
 </div>
+<script type="text/javascript">
+    var urlMap = <?php echo json_encode($urlMap);?>;
+</script>

@@ -182,9 +182,6 @@
 <script type="text/javascript">
         //二级菜单链接
         $(global_event).on('set:map', function (evt, data) {
-                var urlMap = {
-                        'content': '/site/content',
-                };
                 global_event.set = {
                         'urlMap': urlMap
                 };

@@ -21,6 +21,11 @@ class menuWidget extends CWidget {
                         'url'=>'/site/equipments',
                         'title'=>'设备',
                 ),
+                array(
+                    'class'=>'substance',
+                    'url'=>'/site/substance',
+                    'title'=>'内容管理',
+                ),
         );
         public function init() {
                 //当视图中执行$this->beginWidget()时候会执行这个方法  
