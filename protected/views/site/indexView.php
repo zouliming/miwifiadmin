@@ -15,8 +15,8 @@
       <![endif]-->
 
         <title>路由设置 - 小米路由器</title>
-        <link rel="stylesheet" href="<?php echo Util::getCssPath(); ?>page.setting.css?v=0.0.3" type="text/css" />
-        <link rel="stylesheet" href="<?php echo Util::getCssPath(); ?>dialog.css?v=0.0.3" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>page.setting.css?v=0.0.3" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>dialog.css?v=0.0.3" type="text/css" />
     </head>
 
     <body>
@@ -33,7 +33,7 @@
 
                     <div class="mod-user-nav">
                         <ul>
-                            <li><img alt="CMCC-China" src="<?php echo Util::getImgPath();?>tmp/face_rt_m.png" class="img-circle" /><span id="router_name">CMCC-China</span>&nbsp;&nbsp;</li>
+                            <li><img alt="CMCC-China" src="<?php echo Util::getImgUrl();?>tmp/face_rt_m.png" class="img-circle" /><span id="router_name">CMCC-China</span>&nbsp;&nbsp;</li>
 
                             <li><a href="login.html" class="logout">退出</a></li>
 

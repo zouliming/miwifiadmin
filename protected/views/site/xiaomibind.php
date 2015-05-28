@@ -43,11 +43,11 @@
 <script>
         var global_static_url = '<?php echo Yii::app()->getBaseUrl(); ?>';
 </script>
-<script src="<?php echo Util::getJsPath(); ?>common.js?v=0.0.3"></script>
-<script src="<?php echo Util::getJsPath(); ?>md5.js?v=0.0.3"></script>
-<script src="<?php echo Util::getJsPath(); ?>base64.js?v=0.0.3"></script>
-<script src="<?php echo Util::getJsPath(); ?>crypto-js/rollups/sha1.js?v=0.0.3"></script>
-<script src="<?php echo Util::getJsPath(); ?>crypto-js/rollups/aes.js?v=0.0.3"></script>
+<script src="<?php echo Util::getJsUrl(); ?>common.js?v=0.0.3"></script>
+<script src="<?php echo Util::getJsUrl(); ?>md5.js?v=0.0.3"></script>
+<script src="<?php echo Util::getJsUrl(); ?>base64.js?v=0.0.3"></script>
+<script src="<?php echo Util::getJsUrl(); ?>crypto-js/rollups/sha1.js?v=0.0.3"></script>
+<script src="<?php echo Util::getJsUrl(); ?>crypto-js/rollups/aes.js?v=0.0.3"></script>
 <script>
 //检测ajax登录是否失效
         $(global_event).trigger('needLogin');

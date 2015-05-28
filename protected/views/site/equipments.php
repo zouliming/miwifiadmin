@@ -1,5 +1,5 @@
 <?php
-Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
+Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'page.manage.css');
 ?>
 <div id="bd-hd">在这里查看目前接入路由器的设备，并对设备进行管理
     <a href="#" class="btn btn-small refresh"
@@ -52,7 +52,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                             <tbody>
                                 <tr>
                                     <td class="s00">
-                                        <img class="company-icon" src="<?php echo Util::getImgPath();?>device_list_apple.png">
+                                        <img class="company-icon" src="<?php echo Util::getImgUrl();?>device_list_apple.png">
                                     </td>
                                     <td class="s01">
                                         <div class="name">
@@ -83,7 +83,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                             <tbody>
                                 <tr>
                                     <td class="s00">
-                                        <img class="company-icon" src="<?php echo Util::getImgPath();?>device_list_apple.png">
+                                        <img class="company-icon" src="<?php echo Util::getImgUrl();?>device_list_apple.png">
                                     </td>
                                     <td class="s01">
                                         <div class="name">
@@ -114,7 +114,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                             <tbody>
                                 <tr>
                                     <td class="s00">
-                                        <img class="company-icon" src="<?php echo Util::getImgPath();?>device_list_apple.png">
+                                        <img class="company-icon" src="<?php echo Util::getImgUrl();?>device_list_apple.png">
                                     </td>
                                     <td class="s01">
                                         <div class="name">
@@ -145,7 +145,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.manage.css');
                             <tbody>
                                 <tr>
                                     <td class="s00">
-                                        <img class="company-icon" src="<?php echo Util::getImgPath();?>device_list_apple.png">
+                                        <img class="company-icon" src="<?php echo Util::getImgUrl();?>device_list_apple.png">
                                     </td>
                                     <td class="s01">
                                         <div class="name">

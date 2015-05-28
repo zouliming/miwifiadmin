@@ -1,5 +1,5 @@
 <?php
-Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.index.css');
+Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'page.index.css');
 ?>
 <div id="netdetecte" class="mod-sect mod-net-check net-check-warn" style="display:none;">
     <p class="msg">
@@ -14,7 +14,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssPath().'page.index.css');
             <tr>
                 <td width="273">
                     <div class="pic">
-                        <img src="<?php echo Util::getImgPath();?>v2/pic_rt.png" alt="">
+                        <img src="<?php echo Util::getImgUrl();?>v2/pic_rt.png" alt="">
                     </div>
                 </td>
                 <td>

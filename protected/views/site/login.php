@@ -11,7 +11,7 @@
         <meta http-equiv="refresh" content="0; url=http://miwifi.com/blockie6.html" />
         <![endif]-->
         <title>登录 - 小米路由器</title>
-        <link rel="stylesheet" href="<?php echo Util::getCssPath(); ?>page.login.css?v=0.0.3">
+        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>page.login.css?v=0.0.3">
         <script>
                 if (window.self != window.top) {
                         window.top.location.reload(true);
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="tab-panel tab-panel-active">
                                     <div class="userface">
-                                        <img src="<?php echo Util::getImgPath(); ?>tmp/face_rt.png" alt="" class="face img-circle">
+                                        <img src="<?php echo Util::getImgUrl(); ?>tmp/face_rt.png" alt="" class="face img-circle">
                                         <p class="name" id="routername"></p>
                                     </div>
                                     <form id="rtloginform" name="rtloginform" method="post" action="/cgi-bin/luci/api/xqsystem/login" class="form-login">
@@ -100,24 +100,24 @@
         try{ document.execCommand("BackgroundImageCache",false,true);} catch(e){}
         </script>
         <![endif]-->
-        <link rel="stylesheet" href="<?php echo Util::getCssPath(); ?>dialog.css?v=0.0.3">
+        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>dialog.css?v=0.0.3">
         <div id="panelClientdld" class="panel-client-dld" style="display:none; z-index:101;">
             <ul class="clearfix">
                 <li class="first">
                     <a href="#">
-                        <img src="<?php echo Util::getImgPath(); ?>pic_client_pc.png" alt="">
+                        <img src="<?php echo Util::getImgUrl(); ?>pic_client_pc.png" alt="">
                         <span>PC版</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="<?php echo Util::getImgPath(); ?>pic_client_mac.png" alt="">
+                        <img src="<?php echo Util::getImgUrl(); ?>pic_client_mac.png" alt="">
                         <span>Mac版</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="<?php echo Util::getImgPath(); ?>pic_client_ad.png" alt="">
+                        <img src="<?php echo Util::getImgUrl(); ?>pic_client_ad.png" alt="">
                         <span>Android</span>
                     </a>
                 </li>

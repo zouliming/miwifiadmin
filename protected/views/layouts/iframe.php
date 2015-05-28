@@ -9,8 +9,6 @@
     <meta name="viewport" content="width=1024">
     <!--[if lt IE 7]>
     <meta http-equiv="refresh" content="0; url=http://miwifi.com/blockie6.html"/><![endif]--><title>小米路由器</title>
-    <link rel="stylesheet" href="<?php echo Util::getCssPath(); ?>page.set.qos.css?v=0.0.3"/>
-    <
 </head>
 <body>
 <div class="mod-setting-panel">
