@@ -117,6 +117,14 @@ class MainmenuController extends Controller {
             'dataProvider' => $dataProvider,
         ));
     }
+    public function actionMenuInfo(){
+        $dataProvider = new CActiveDataProvider('Mainmenu');
+        $data = $dataProvider->getData();
+        echo CJSON::encode(Array(
+            'code'=>0,
+            'list'=>$data
+        ));
+    }
 
     /**
      * Manages all models.

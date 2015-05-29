@@ -2,41 +2,36 @@
 /* @var $this MainmenuController */
 /* @var $dataProvider CActiveDataProvider */
 $datas = $dataProvider->getData();
-Yii::app()->clientScript->registerCssFile(Util::getCssUrl() . 'page.set.menu.css');
+Yii::app()->clientScript->registerCssFile(Util::getCssUrl() . 'page.set.mainmenu.css');
 ?>
 <div class="mod-manimenu">
-    <table width="100%">
-        <tr>
-            <th>ID</th>
-            <th>标题</th>
-            <th>链接</th>
-            <th>状态</th>
-            <th>操作</th>
-        </tr>
-        <?php
-        foreach ($datas as $row) {
-            ?>
+    <div class="section" style="display: block;">
+        <h4>设备列表 <i class="ico ico-refresh" id="refresh" title="刷新当前设备列表"></i></h4>
+
+        <div id="devloading" style="display: none;">加载中...</div>
+        <table width="100%" id="tableMenu" style="display: none">
+            <thead>
             <tr>
-                <td><?php echo $row->id; ?></td>
-                <td><?php echo $row->title; ?></td>
-                <td><?php echo $row->url; ?></td>
-                <td><?php echo $row->enable == 1 ? "启用" : "禁用"; ?></td>
-                <td>
-                    <div class="read-mod">
-                        <button type="button" class="btn btn-small btn-editqos"><span>编辑</span></button>
-                        <button type="button" class="btn btn-small btn-del-qoslimit"><span>删除</span></button>
-                    </div>
-                    <div class="edit-mod" style="display: none">
-                        <button type="button" class="btn btn-small btn-set-qoslimit"><span>确认</span></button>
-                        <button type="button" class="btn btn-small btn-cancel-qoslimit"><span>取消</span></button>
-                    </div>
-                </td>
+                <th>ID</th>
+                <th>标题</th>
+                <th>链接</th>
+                <th>状态</th>
+                <th>操作</th>
             </tr>
-        <?php } ?>
-    </table>
+            </thead>
+            <tbody id="menulist"></tbody>
+        </table>
+    </div>
 </div>
-<?php Util::loadJquery(); ?>
-<script type="tmpl/html" id="tpldevlist1">
+<?php
+$jsUrl = Util::getJsUrl();
+Yii::app()->clientScript
+    ->registerCoreScript('jquery')
+    ->registerScriptFile($jsUrl . 'selectbeautify.js')
+    ->registerScriptFile($jsUrl . 'qwrap.js')
+    ->registerScriptFile($jsUrl . 'util.js');
+?>
+<script type="tmpl/html" id="tplmenulist1">
     <tr>
         <td>{$id}</td>
         <td>
@@ -65,65 +60,53 @@ Yii::app()->clientScript->registerCssFile(Util::getCssUrl() . 'page.set.menu.css
         </td>
     </tr>
 
-
 </script>
 <script type="text/javascript">
     var modelQos = (function () {
-        // rander devices list DOM
-        function randerDevlist(rsp, type) {
+        // get menu list
+        function menuStatus() {
+            $.getJSON('/mainmenu/menuinfo', {}, function (rsp) {
+                $('#devloading').hide();
+                if (rsp.code == 0) {
+                    randerDevlist(rsp);
+                }
+            });
+        }
+
+        // rander menus list DOM
+        function randerDevlist(rsp) {
             var tpl,
-                devlist = rsp.list,
+                menulist = rsp.list,
                 arrdevlist = [],
-                htmldevlist,
+                htmlmenulist,
                 tbody,
                 colspan,
                 table;
             $('.table-devices').hide();
-            if (type == 0) {
-                tpl = $('#tpldevlist1').html();
-                tbody = $('#devlistauto');
-                colspan = 5;
-                table = $('#tableauto');
-            } else {
-                tpl = $('#tpldevlist2').html();
-                tbody = $('#devlistcustom');
-                colspan = 6;
-                table = $('#tablecustom');
-            }
-            if (devlist.length == 0) {
+
+            tpl = $('#tplmenulist1').html();
+            tbody = $('#menulist');
+            colspan = 5;
+            table = $('#tableMenu');
+            if (menulist.length == 0) {
                 tbody.html('<tr><td colspan="' + colspan + '">无数据</td></tr>');
                 return;
             }
-            for (var i = 0; i < devlist.length; i++) {
+            for (var i = 0; i < menulist.length; i++) {
                 var index = i,
-                    upspeed = byteFormat(devlist[i].statistics.upspeed, 100),
-                    downspeed = byteFormat(devlist[i].statistics.downspeed, 100),
-                    upmax = devlist[i].qos.upmax,
-                    downmax = devlist[i].qos.downmax,
-                    upmaxper = devlist[i].qos.upmaxper,
-                    maxdownper = devlist[i].qos.maxdownper,
-                    level = devlist[i].qos.level,
-                    ip = devlist[i].ip,
-                    mac = devlist[i].mac,
-                    dname = devlist[i]['name'],
+                    title = menulist[i].title,
+                    url = menulist[i].url,
+                    enable = menulist[i].enable,
                     tpldata = {
                         index: index,
-                        devname: dname,
-                        ip: ip,
-                        mac: mac,
-                        upspeed: upspeed,
-                        downspeed: downspeed,
-                        upmax: upmax,
-                        downmax: downmax,
-                        upmaxper: upmaxper,
-                        downmaxper: maxdownper,
-                        level: level,
-                        levelvalue: ['未设置', '低', '中', '高'][level]
+                        title: title,
+                        url: url,
+                        enable: ['禁用', '启用'][enable]
                     };
                 arrdevlist.push(tpl.tmpl(tpldata));
             }
-            htmldevlist = arrdevlist.join('');
-            tbody.html(htmldevlist);
+            htmlmenulist = arrdevlist.join('');
+            tbody.html(htmlmenulist);
             table.show();
         }
 
@@ -216,6 +199,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssUrl() . 'page.set.menu.css
 
         return {
             init: function () {
+                menuStatus();
                 addEvent();
             }
         }
