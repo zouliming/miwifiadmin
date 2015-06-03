@@ -11,8 +11,6 @@
     <meta http-equiv="refresh" content="0; url=http://miwifi.com/blockie6.html"/><![endif]--><title>小米路由器</title>
 </head>
 <body>
-<div class="mod-setting-panel">
-    <?php echo $content;?>
-</div>
+<?php echo $content;?>
 </body>
 </html>

@@ -221,7 +221,7 @@ input.text {
 	border-width: 1px;
 	border-color: #ccc;
 	border-radius: 2px;
-	background:#fff url(../img/bg_linear.png) repeat-x 0 -276px;
+	background:#fff url(../../img/bg_linear.png) repeat-x 0 -276px;
 	font-size: 14px;
 	line-height: 24px;
 	height: 24px;
@@ -263,7 +263,7 @@ input.text-focus {
 	width: 18px;
 	height: 18px;
 	vertical-align: middle;
-	background: url(../img/v2/bg_input_checkbox.png) no-repeat 0 -28px;
+	background: url(../../img/v2/bg_input_checkbox.png) no-repeat 0 -28px;
 }
 .input-checkbox input {
 	display: none;
@@ -495,7 +495,7 @@ a.btn {
 	-webkit-background-clip: padding;
 	-moz-background-clip: padding;
 	background-clip: padding;
-	background-image: url(../img/bg_linear.png);
+	background-image: url(../../img/bg_linear.png);
 	background-color: #eee;
 	background-repeat: repeat-x;
 	-webkit-border-radius: 2px;
@@ -606,7 +606,7 @@ a.btn span {
 	height: 26px;
 	outline: 0;
 	overflow: hidden;
-	background: url(../img/v2/bt_offon.png) no-repeat;
+	background: url(../../img/v2/bt_offon.png) no-repeat;
 }
 .btn-on {
 	background-position: 0 0;
@@ -623,7 +623,7 @@ a.btn span {
 #hd {
 	position: relative;
 	z-index:2;
-	background: url(../img/v2/bg_hd.png) repeat-x 0 0;
+	background: url(../../img/v2/bg_hd.png) repeat-x 0 0;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	min-width: 1000px;
 }
@@ -697,7 +697,7 @@ a.btn span {
 }
 #logo a {
 	text-indent: -999em;
-	background: url(../img/v2/logo.png) no-repeat 0 0;
+	background: url(../../img/v2/logo.png) no-repeat 0 0;
 }
 
 .mod-user-nav {
@@ -779,7 +779,7 @@ a.btn span {
 }
 #nav li.active {
 	border-top: 1px #008dd5 solid;
-	background: #008dd5 url(../img/v2/bg_nav_on.png) no-repeat 100% -50px;
+	background: #008dd5 url(../../img/v2/bg_nav_on.png) no-repeat 100% -50px;
 }
 #nav li.setting.active {
 	/*background-position: 100% 0;*/
@@ -808,7 +808,7 @@ a.btn span {
 	height: 16px;
 	margin-right: 10px;
 	margin-left: 25px;
-	background: url(../img/v2/ico_nav.png) no-repeat;
+	background: url(../../img/v2/ico_nav.png) no-repeat;
 }
 #nav li a .ico-nav-1 {
 	background-position: 0 0;
@@ -1000,138 +1000,52 @@ body {
 .mod-setting-panel .bd {
 	padding-bottom: 70px;
 }
-.mod-qos .ico-refresh {
-    cursor: pointer;
-    width: 16px;
-    height: 16px;
-    background: url(../img/v2/ico_refresh.png) no-repeat;
+.mod-set-status {
+	margin: 20px 0;
+	padding-bottom: 20px;
 }
-.mod-qos .ico-upspeed,
-.mod-qos .ico-downspeed {
-    width: 12px;
-    height: 12px;
-    background: url(../img/ico_updown.png) no-repeat;
+.mod-set-status .group {
+	border: 1px #e5e5e5 solid;
+	margin-bottom: 20px;
 }
-.mod-qos .ico-upspeed {
-    background-position: 0 0;
+.mod-set-status .group h3 {
+	background: #fafafa;
+	border-bottom: 1px #e5e5e5 solid;
+	line-height: 40px;
+	height: 40px;
+	padding-left: 15px;
 }
-.mod-qos .ico-downspeed {
-    background-position: 0 -19px;
+.mod-set-status .group .list {
+	margin: 15px 0;
 }
-.mod-qos th,
-.mod-qos td {
-    padding: 15px 5px;
-    font-size: 14px;
-    overflow: hidden;
-    text-overflow:ellipsis;
+.mod-set-status .grid {
+	overflow: hidden;
+	zoom:1;
 }
-.mod-qos th {
-    background: #fafafa;
+.mod-set-status .grid .list {
+	float: left;
+	width: 49%;
 }
-.mod-qos td {
-    padding: 5px;
+.mod-set-status .grid .list-first {
+	border-right: 1px #e5e5e5 solid;
 }
-.mod-qos td.con {
-    color: #999;
-    word-break:keep-all;
+.mod-set-status .group .list li {
+	padding: 3px 0 3px;
+	overflow: hidden;
+	zoom:1;
 }
-.mod-qos td.center,
-.mod-qos th.center {
-    text-align: center;
+.mod-set-status .group .list li .k,
+.mod-set-status .group .list li .v {
+	float: left;
 }
-.mod-qos .section {
-    margin-bottom: 25px;
+.mod-set-status .group .list li .k {
+	width: 8em;
+	margin-right: 5px;
+	text-align: right;
+	color: #666;
 }
-.mod-qos .section h4 {
-    padding: 5px 0 10px;
-    font-weight: normal;
-}
-.mod-qos .section h4 span,
-.mod-qos .section h4 i {
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    vertical-align: middle;
-}
-
-.mod-qos .form-qos input.text {
-    width: 80px;
-}
-.mod-qos td .form-qos input.text {
-    width: 40px;
-}
-.mod-qos td .form-qos {
-    padding-top: 5px;
-}
-.mod-qos td .form-qos .item {
-    margin-bottom: 5px;
-}
-.mod-qos td .form-qos .item .k {
-    width: auto;
-}
-.mod-qos td.action .btn {
-    margin: 3px 0;
-}
-.speedset .btns {
-    padding-top: 10px;
-}
-.speedset .btns .btn {
-    margin-right: 5px;
-}
-.mod-qos .models label input,
-.mod-qos .models label span {
-    display: inline-block;
-    *display: inline;
-    *zoom: 1;
-    vertical-align: middle;
-}
-.mod-qos td .edit-mod {
-    display: none;
-}
-.mod-qos td .read-mod {
-    display: block;
-}
-.mod-qos td.toedit .read-mod {
-    display: none;
-}
-.mod-qos td.toedit .edit-mod {
-    display: block;
-}
-
-#speedtest {
-    padding-left: 32px;
-    margin-bottom: 15px;
-}
-.ico-speedtest {
-    width: 88px;
-    height: 68px;
-    background: url(../img/v2/ico_speed_testing.png) no-repeat;
-}
-#speedtest .ico-speedtest {
-    float: left;
-    margin-right: 35px;
-}
-#speedtest .speedtest {
-    overflow: hidden;
-    zoom:1;
-}
-#speedtest .btns {
-    padding-top: 10px;
-    display: none;
-}
-#speedtest .btns .btn {
-    margin-right: 10px;
-}
-#speedtest .progress {
-    display: none;
-    margin-top: 10px;
-    width: 332px;
-    height: 8px;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    background: url(../img/v2/progress.gif) repeat-x 0 0;
-}
-#devloading {
-    margin-bottom: 15px;
+.mod-set-status .group .list li .v {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
 }

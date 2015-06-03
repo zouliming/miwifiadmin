@@ -15,7 +15,7 @@
         <![endif]-->
 
         <title>路由设置 - 小米路由器</title>
-        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>page.setting.css?v=0.0.3" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>original/page.setting.css?v=0.0.3" type="text/css" />
     </head>
 
     <body>

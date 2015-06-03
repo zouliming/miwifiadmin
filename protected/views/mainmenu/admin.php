@@ -2,16 +2,6 @@
 /* @var $this MainmenuController */
 /* @var $model Mainmenu */
 
-$this->breadcrumbs=array(
-	'Mainmenus'=>array('index'),
-	'Manage',
-);
-
-$this->menu=array(
-	array('label'=>'List Mainmenu', 'url'=>array('index')),
-	array('label'=>'Create Mainmenu', 'url'=>array('create')),
-);
-
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();

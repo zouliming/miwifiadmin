@@ -525,7 +525,7 @@ var modelQos = (function(){
 				} );
 			}
 		} );
-
+		//编辑
 		$('body').delegate( '.btn-editqos', 'click', function( e ){
 			e.preventDefault();
 			var root = $( e.target ).parents( 'tr' );
@@ -533,7 +533,7 @@ var modelQos = (function(){
 				$(this).addClass('toedit');
 			});
 		} );
-
+		//取消
 		$('body').delegate( '.btn-cancel-qoslimit', 'click', function( e ){
 			e.preventDefault();
 			var root = $( e.target ).parents( 'tr' );
@@ -544,7 +544,7 @@ var modelQos = (function(){
 			console.log(formName);
 			FormValidator.checkAll( formName, []);
 		} );
-
+		//删除
 		$('body').delegate( '.btn-del-qoslimit', 'click', function( e) {
 			e.preventDefault();
 
@@ -573,7 +573,7 @@ var modelQos = (function(){
 			}).lock();
 
 		} );
-
+		//提交
 		$('body').delegate( '.btn-set-qoslimit', 'click', function( e ){
 			e.preventDefault();
 			var root = $( this ).parents( 'tr' ),
@@ -610,7 +610,7 @@ var modelQos = (function(){
 				}
 		} );
 
-		$( '#refresh' ).on( 'click', function( e ){
+		$( '#devloading' ).on( 'click', function( e ){
 			e.preventDefault();
 			$( '#devloading' ).show();
 			qosStatus();

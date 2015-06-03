@@ -12,6 +12,8 @@ class Controller extends CController {
          */
         public $layout = 'none';
 
+		public $breadcrumbs = array();
+
         /**
          * @var array context menu items. This property will be assigned to {@link CMenu::items}.
          */

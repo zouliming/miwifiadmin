@@ -1,10 +1,12 @@
-(function($){
+(function ($) {
     var _isIE6 = !!($.browser.msie && $.browser.version == '6.0'),
         _isFixed = !_isIE6,
-        tmpl = function(sTmpl,opts){
-            return sTmpl.replace(/\{\$(\w+)\}/g,function(a,b){return opts[b]});
+        tmpl = function (sTmpl, opts) {
+            return sTmpl.replace(/\{\$(\w+)\}/g, function (a, b) {
+                return opts[b]
+            });
         },
-        _mix = function(des, src, override) {
+        _mix = function (des, src, override) {
             for (var i in src) {
                 if (override || !(i in des)) {
                     des[i] = src[i];
@@ -51,27 +53,28 @@
         },
         tplMask = '<div class="panel-mask" style="position:absolute;left:0;top:0;style:none;"><iframe style="width:100%;height:100%;filter:alpha(opacity=0);"></div>',
         tplDialog = ''
-+'<div class="panel panel-dialog" style="position:absolute;left:0;top:0;style:none;">'
-+   '<div class="panel-content">'
-+       '<div class="hd">'
-+           '<h3 class="d-hd"></h3>'
-+       '</div>'
-+       '<div class="bd">'
-+           '<div class="d-bd"></div>'
-+       '</div>'
-+       '<div class="ft">'
-+           '<div class="d-ft"></div>'
-+       '</div>'
-+   '</div>'
-+   '<span class="d-close" title="关闭">&times;</span>'
-+'</div>';
+            + '<div class="panel panel-dialog" style="position:absolute;left:0;top:0;style:none;">'
+            + '<div class="panel-content">'
+            + '<div class="hd">'
+            + '<h3 class="d-hd"></h3>'
+            + '</div>'
+            + '<div class="bd">'
+            + '<div class="d-bd"></div>'
+            + '</div>'
+            + '<div class="ft">'
+            + '<div class="d-ft"></div>'
+            + '</div>'
+            + '</div>'
+            + '<span class="d-close" title="关闭">&times;</span>'
+            + '</div>';
     //构造类
-    function Dialog(opt){
+    function Dialog(opt) {
         var _opt = _mix(opt, defaults);
         if (!_isFixed) {
             _opt.fixed = false;
-        };
-        if ( !_opt.button || !$.isArray(_opt.button) ) {
+        }
+        ;
+        if (!_opt.button || !$.isArray(_opt.button)) {
             _opt.button = [];
         }
         if (_opt.ok) {
@@ -81,7 +84,8 @@
                 callback: _opt.ok,
                 focus: true
             });
-        };
+        }
+        ;
         if (_opt.cancel) {
             _opt.button.push({
                 id: 'cancel',
@@ -89,7 +93,8 @@
                 callback: _opt.cancel,
                 focus: false
             });
-        };
+        }
+        ;
 
         //update zIndex
         defaults.zIndex = _opt.zIndex;
@@ -104,36 +109,37 @@
         _islock: false,
         _lockMask: null,
         // 初始化
-        initialize: function(){
+        initialize: function () {
             this._creat();
             this.show();
             this._addEvent();
         },
         // 标题
-        title: function( str ){
+        title: function (str) {
             var dom = this._dom,
                 title = dom['hd'],
                 classname = 'd-is-notitle';
             if (str === false) {
                 title.hide();
                 dom['self'].addClass(classname);
-            }else{
-                title.html( str ).show();
+            } else {
+                title.html(str).show();
                 dom['self'].removeClass(classname);
             }
             return this;
         },
         // 内容
-        content: function( str ){
+        content: function (str) {
             var str = str || '';
-            this._dom['bd'].html( str );
+            this._dom['bd'].html(str);
             return this;
         },
         // 锁屏
         lock: function () {
             if (this._isLock) {
                 return this;
-            };
+            }
+            ;
 
             var that = this,
                 options = this.options,
@@ -157,7 +163,8 @@
                     width: $(window).width() + 'px',
                     height: $(document).height() + 'px'
                 });
-            };
+            }
+            ;
             $mask.appendTo(document.body);
             $mask.show();
             this._lockMask = $mask;
@@ -166,17 +173,17 @@
             return this;
         },
         // 解锁
-        unlock: function(){
-            if ( this._isLock ) {
+        unlock: function () {
+            if (this._isLock) {
                 this._lockMask.remove();
                 this._lockMask = null;
                 this._isLock = false;
-            }else{
+            } else {
                 return this;
             }
         },
         // 打开
-        show: function(){
+        show: function () {
             var dom = this._dom;
             this.zIndex();
             this.position();
@@ -186,7 +193,7 @@
             return this;
         },
         // 关闭
-        close: function(){
+        close: function () {
             var onbeforeunload = this.options['beforeunload'],
                 dom = this._dom;
 
@@ -212,22 +219,23 @@
             timer && clearTimeout(timer);
 
             if (time) {
-                this._timer = setTimeout(function(){
+                this._timer = setTimeout(function () {
                     that.close();
                 }, time);
-            };
+            }
+            ;
 
             return this;
         },
         //  设置对话框大小
-        size: function( w, h ){
+        size: function (w, h) {
             var dom = this._dom;
-            dom['self'].width( w ).height( h );
+            dom['self'].width(w).height(h);
             this.position();
             return this;
         },
         // 设置对话框位置
-        position: function(){
+        position: function () {
             var dom = this._dom,
                 wrap = dom['self'],
                 el = wrap[0],
@@ -244,9 +252,7 @@
                 top = (wh - oh) * 382 / 1000 + dt,
                 style = el.style,
                 zindex = defaults.zIndex;
-            console.log(fixed, 'fixed config');
             if (fixed) {
-                console.log('fixed');
                 style.position = fixed ? 'fixed' : 'absolute';
             }
 
@@ -257,7 +263,7 @@
             return this;
         },
         // 按钮
-        button: function(){
+        button: function () {
             var dom = this._dom,
                 that = this,
                 ft = dom['ft'],
@@ -275,12 +281,11 @@
                 value = btn.value;
                 id = btn.id;
                 isNewBtn = !this._buttons[id];
-                console.log(btn, isNewBtn, buttons);
-                if ( isNewBtn ) {
+                if (isNewBtn) {
                     if (!buttons[id]) {
                         buttons[id] = {};
                     }
-                    button = $('<a href="#" data-id="'+ id +'" class="btn"><span>'+ value +'</span></a>');
+                    button = $('<a href="#" data-id="' + id + '" class="btn"><span>' + value + '</span></a>');
                     buttons[id].elem = button;
                     if (btn.callback) {
                         buttons[id].callback = btn.callback;
@@ -301,7 +306,7 @@
         // 置顶当前对话框
         zIndex: function () {
             var dom = this._dom,
-                index = defaults.zIndex ++;
+                index = defaults.zIndex++;
 
             // 设置叠加高度
             dom['self'].css('zIndex', index);
@@ -312,7 +317,7 @@
             return this;
         },
         // 创建对话框
-        _creat: function(){
+        _creat: function () {
             var dom = this._buildHTML(),
                 initialize = this.options.initialize,
                 title = this.options.title,
@@ -328,9 +333,9 @@
 
             dom['bd'].css('padding', padding);
 
-            this.title( title )
-                .content( content )
-                .size( width, height );
+            this.title(title)
+                .content(content)
+                .size(width, height);
 
             if (time) {
                 this.time(time);
@@ -343,25 +348,25 @@
             }
             this.button.apply(this, this.options.button);
 
-            if( initialize && typeof ( initialize ) === 'function' ){
+            if (initialize && typeof ( initialize ) === 'function') {
                 initialize.call(this);
             }
         },
-        _addEvent : function(){
+        _addEvent: function () {
             var that = this,
                 dom = this._dom;
-            $(window).on('resize', function(){
+            $(window).on('resize', function () {
                 that.position();
             });
-            dom['close'].on('click', function(e){
+            dom['close'].on('click', function (e) {
                 that.close();
             });
-            dom['ft'].find('.btn').on('click', function(e){
+            dom['ft'].find('.btn').on('click', function (e) {
                 e.preventDefault();
                 var id = $(this).attr('data-id');
                 id && that._btnCallback(id);
             });
-            dom['self'].on('mousedown', function(){
+            dom['self'].on('mousedown', function () {
                 that.zIndex();
             });
             // 全局快捷键
@@ -383,19 +388,20 @@
                 }
             });
         },
-        _removeEvent : function(){
+        _removeEvent: function () {
             $(window).unbind();
             $(document).unbind();
             this._dom['close'].unbind();
         },
-        _buildHTML: function(){
+        _buildHTML: function () {
             var body = document.body,
                 dom = {},
                 elem;
 
             if (!body) {
                 throw new Error('artDialog: "documents.body" not ready');
-            };
+            }
+            ;
             elem = $(tplDialog);
             body.insertBefore(elem[0], body.firstChild);
 
@@ -420,23 +426,23 @@
 
     Dialog.focus = null;
 
-    Dialog.get = function( id ){
+    Dialog.get = function (id) {
         return id == undefined ? Dialog.list : Dialog.list[id];
     };
 
     window.art = {};
 
-    window.art.dialog = $.dialog = function( opt ){
+    window.art.dialog = $.dialog = function (opt) {
         var _dialog
-            _id = opt.id;
+        _id = opt.id;
         if (!_id) {
             _id = opt.id = 'id' + new Date().getTime();
         }
 
         if (_id && Dialog.list[_id]) {
-            _dialog =  Dialog.list[_id];
+            _dialog = Dialog.list[_id];
             _dialog.zIndex();
-        }else{
+        } else {
             _dialog = Dialog.list[_id] = new Dialog(opt);
         }
         return _dialog;

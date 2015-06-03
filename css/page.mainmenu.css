@@ -1,0 +1,102 @@
+/* mainmenu index */
+
+.mod-mainmenu-panel{
+    margin: 30px 60px 0;
+}
+.mod-mainmenu-panel .ico-refresh {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    background: url(../../img/v2/ico_refresh.png) no-repeat;
+}
+.mod-mainmenu-panel .ico-upspeed,
+.mod-mainmenu-panel .ico-downspeed {
+    width: 12px;
+    height: 12px;
+    background: url(../../img/ico_updown.png) no-repeat;
+}
+.mod-mainmenu-panel .ico-upspeed {
+    background-position: 0 0;
+}
+.mod-mainmenu-panel .ico-downspeed {
+    background-position: 0 -19px;
+}
+.mod-mainmenu-panel th,
+.mod-mainmenu-panel td {
+    padding: 15px 5px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.mod-mainmenu-panel th {
+    background: #fafafa;
+}
+.mod-mainmenu-panel td {
+    padding: 5px;
+}
+.mod-mainmenu-panel td.con {
+    color: #999;
+    word-break:keep-all;
+}
+.mod-mainmenu-panel td.center,
+.mod-mainmenu-panel th.center {
+    text-align: center;
+}
+.mod-mainmenu-panel .section {
+    margin-bottom: 25px;
+}
+.mod-mainmenu-panel .section h4 {
+    padding: 5px 0 10px;
+    font-weight: normal;
+}
+.mod-mainmenu-panel .section h4 span,
+.mod-mainmenu-panel .section h4 i {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+
+.mod-mainmenu-panel .form-qos input.text {
+    width: 80px;
+}
+.mod-mainmenu-panel td .form-qos input.text {
+    width: 40px;
+}
+.mod-mainmenu-panel td .form-qos {
+    padding-top: 5px;
+}
+.mod-mainmenu-panel td .form-qos .item {
+    margin-bottom: 5px;
+}
+.mod-mainmenu-panel td .form-qos .item .k {
+    width: auto;
+}
+.mod-mainmenu-panel td.action .btn {
+    margin: 3px 0;
+}
+.speedset .btns {
+    padding-top: 10px;
+}
+.speedset .btns .btn {
+    margin-right: 5px;
+}
+.mod-mainmenu-panel .models label input,
+.mod-mainmenu-panel .models label span {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+.mod-mainmenu-panel td .edit-mod {
+    display: none;
+}
+.mod-mainmenu-panel td .read-mod {
+    display: block;
+}
+.mod-mainmenu-panel td.toedit .read-mod {
+    display: none;
+}
+.mod-mainmenu-panel td.toedit .edit-mod {
+    display: block;
+}

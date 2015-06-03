@@ -2,11 +2,6 @@
 /* @var $this AsidemenuController */
 /* @var $model Asidemenu */
 
-$this->breadcrumbs=array(
-	'Asidemenus'=>array('index'),
-	'Manage',
-);
-
 $this->menu=array(
 	array('label'=>'List Asidemenu', 'url'=>array('index')),
 	array('label'=>'Create Asidemenu', 'url'=>array('create')),

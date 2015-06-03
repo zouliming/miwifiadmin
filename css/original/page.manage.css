@@ -221,7 +221,7 @@ input.text {
     border-width: 1px;
     border-color: #ccc;
     border-radius: 2px;
-    background:#fff url(../img/bg_linear.png) repeat-x 0 -276px;
+    background:#fff url(../../img/bg_linear.png) repeat-x 0 -276px;
     font-size: 14px;
     line-height: 24px;
     height: 24px;
@@ -263,7 +263,7 @@ input.text-focus {
     width: 18px;
     height: 18px;
     vertical-align: middle;
-    background: url(../img/v2/bg_input_checkbox.png) no-repeat 0 -28px;
+    background: url(../../img/v2/bg_input_checkbox.png) no-repeat 0 -28px;
 }
 .input-checkbox input {
     display: none;
@@ -495,7 +495,7 @@ a.btn {
     -webkit-background-clip: padding;
     -moz-background-clip: padding;
     background-clip: padding;
-    background-image: url(../img/bg_linear.png);
+    background-image: url(../../img/bg_linear.png);
     background-color: #eee;
     background-repeat: repeat-x;
     -webkit-border-radius: 2px;
@@ -606,7 +606,7 @@ a.btn span {
     height: 26px;
     outline: 0;
     overflow: hidden;
-    background: url(../img/v2/bt_offon.png) no-repeat;
+    background: url(../../img/v2/bt_offon.png) no-repeat;
 }
 .btn-on {
     background-position: 0 0;
@@ -623,7 +623,7 @@ a.btn span {
 #hd {
     position: relative;
     z-index:2;
-    background: url(../img/v2/bg_hd.png) repeat-x 0 0;
+    background: url(../../img/v2/bg_hd.png) repeat-x 0 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     min-width: 1000px;
 }
@@ -697,7 +697,7 @@ a.btn span {
 }
 #logo a {
     text-indent: -999em;
-    background: url(../img/v2/logo.png) no-repeat 0 0;
+    background: url(../../img/v2/logo.png) no-repeat 0 0;
 }
 
 .mod-user-nav {
@@ -779,7 +779,7 @@ a.btn span {
 }
 #nav li.active {
     border-top: 1px #008dd5 solid;
-    background: #008dd5 url(../img/v2/bg_nav_on.png) no-repeat 100% -50px;
+    background: #008dd5 url(../../img/v2/bg_nav_on.png) no-repeat 100% -50px;
 }
 #nav li.setting.active {
     /*background-position: 100% 0;*/
@@ -808,7 +808,7 @@ a.btn span {
     height: 16px;
     margin-right: 10px;
     margin-left: 25px;
-    background: url(../img/v2/ico_nav.png) no-repeat;
+    background: url(../../img/v2/ico_nav.png) no-repeat;
 }
 #nav li a .ico-nav-1 {
     background-position: 0 0;
@@ -1060,7 +1060,7 @@ a.btn span {
 .ico-devices {
     width: 63px;
     height: 63px;
-    background: url(../img/v2/ico_device.png) no-repeat 0 0;
+    background: url(../../img/v2/ico_device.png) no-repeat 0 0;
 }
 .ico-devices-1 {
     background-position: 0 0;
@@ -1084,7 +1084,7 @@ a.btn span {
     *zoom: 1;
     width: 15px;
     height: 15px;
-    background: url(../img/bt_edit.png) no-repeat 0 0;
+    background: url(../../img/bt_edit.png) no-repeat 0 0;
 }
 .mod-device .loading {
     display: block;

@@ -221,7 +221,7 @@ input.text {
 	border-width: 1px;
 	border-color: #ccc;
 	border-radius: 2px;
-	background:#fff url(../img/bg_linear.png) repeat-x 0 -276px;
+	background:#fff url(../../img/bg_linear.png) repeat-x 0 -276px;
 	font-size: 14px;
 	line-height: 24px;
 	height: 24px;
@@ -263,7 +263,7 @@ input.text-focus {
 	width: 18px;
 	height: 18px;
 	vertical-align: middle;
-	background: url(../img/v2/bg_input_checkbox.png) no-repeat 0 -28px;
+	background: url(../../img/v2/bg_input_checkbox.png) no-repeat 0 -28px;
 }
 .input-checkbox input {
 	display: none;
@@ -495,7 +495,7 @@ a.btn {
 	-webkit-background-clip: padding;
 	-moz-background-clip: padding;
 	background-clip: padding;
-	background-image: url(../img/bg_linear.png);
+	background-image: url(../../img/bg_linear.png);
 	background-color: #eee;
 	background-repeat: repeat-x;
 	-webkit-border-radius: 2px;
@@ -606,7 +606,7 @@ a.btn span {
 	height: 26px;
 	outline: 0;
 	overflow: hidden;
-	background: url(../img/v2/bt_offon.png) no-repeat;
+	background: url(../../img/v2/bt_offon.png) no-repeat;
 }
 .btn-on {
 	background-position: 0 0;
@@ -623,7 +623,7 @@ a.btn span {
 #hd {
 	position: relative;
 	z-index:2;
-	background: url(../img/v2/bg_hd.png) repeat-x 0 0;
+	background: url(../../img/v2/bg_hd.png) repeat-x 0 0;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	min-width: 1000px;
 }
@@ -697,7 +697,7 @@ a.btn span {
 }
 #logo a {
 	text-indent: -999em;
-	background: url(../img/v2/logo.png) no-repeat 0 0;
+	background: url(../../img/v2/logo.png) no-repeat 0 0;
 }
 
 .mod-user-nav {
@@ -779,7 +779,7 @@ a.btn span {
 }
 #nav li.active {
 	border-top: 1px #008dd5 solid;
-	background: #008dd5 url(../img/v2/bg_nav_on.png) no-repeat 100% -50px;
+	background: #008dd5 url(../../img/v2/bg_nav_on.png) no-repeat 100% -50px;
 }
 #nav li.setting.active {
 	/*background-position: 100% 0;*/
@@ -808,7 +808,7 @@ a.btn span {
 	height: 16px;
 	margin-right: 10px;
 	margin-left: 25px;
-	background: url(../img/v2/ico_nav.png) no-repeat;
+	background: url(../../img/v2/ico_nav.png) no-repeat;
 }
 #nav li a .ico-nav-1 {
 	background-position: 0 0;
@@ -971,198 +971,168 @@ a.btn span {
 	text-overflow:ellipsis;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-/*import from dist/www/xiaoqiang/web/css/media.css,(by build.py)*/
+/*import from dist/www/xiaoqiang/web/css/mod.set.css,(by build.py)*/
 
-#hd .inner,
-#bd,
-#nav {
-	width: 1200px;
+body {
+	background: #fff;
 }
-#bd.dft {
-	width: 980px;
-	min-height: 1000px;
-}/*import from dist/www/xiaoqiang/web/css/mod.setting.css,(by build.py)*/
 
-.mod-setting-nav {
-	width: 180px;
-	min-height: 650px;
-	_height: 650px;
-	border-right: 1px #e5e5e5 solid;
+.mod-setting-panel {
+	margin: 30px 60px 0;
 }
-.mod-setting-nav ul {
-	padding: 0;
-	margin: 0;
-}
-.mod-setting-nav .nav-list {
-	overflow: hidden;
+.mod-setting-panel .hd {
+	line-height: 49px;
+	font-size: 22px;
+	border-bottom: 1px #e5e5e5 solid;
+	margin-bottom: 70px;
+	overflow-x: hidden;
 	zoom:1;
 }
-.mod-setting-nav .nav-item {
-	width: 100%;
-	float: left;
-	clear: both;
-}
-.mod-setting-nav a {
-	color: #333;
-}
-.mod-setting-nav a:hover {
-	color: #333;
-	text-decoration: none;
-}
-.mod-setting-nav li ul {
-	font-size: 14px;
-}
-.mod-setting-nav li .isopen {
-	padding: 4px 0;
-}
-.mod-setting-nav li ul a {
-	display: block;
-	height: 40px;
-	line-height: 40px;
-	text-indent: 44px;
-}
-.mod-setting-nav li ul a:hover {
-	color: #333;
-	background: #ebebeb;
-}
-.mod-setting-nav li ul .active a {
-	color: #01a6e8;
-}
-.mod-setting-nav .nav-hd {
-	position: relative;
-	height: 49px;
-	line-height: 49px;
-	font-size: 16px;
-	border:1px #e5e5e5 solid;
-	border-width:1px 0;
-	margin-top: -1px;
-	overflow: hidden;
+.mod-setting-panel .hd h3 {
 	font-weight: normal;
-	background: #f2f2f2;
-	cursor: pointer;
-	/*background:url(../img/bg_set_nav_hd.png) repeat-x;*/
+	float: left;
+	margin-right: 20px;
 }
-.mod-setting-nav .nav-hd a {
-	display: block;
+.mod-setting-panel .hd .btn-offon {
+	float: left;
+	margin-top: 11px;
 }
-.mod-setting-nav .nav-hd span {
-	text-indent: 20px;
+.mod-setting-panel .bd {
+	padding-bottom: 70px;
 }
-.mod-setting-nav .nav-hd a:hover{
-	color: #333;
+.mod-manimenu .ico-refresh {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    background: url(../../img/v2/ico_refresh.png) no-repeat;
 }
-.mod-setting-nav .nav-hd .bt-onoff {
-	width: 10px;
-	height: 7px;
-	position: absolute;
-	right: 20px;
-	top:22px;
-	overflow: hidden;
-	font-style: 0;
-	line-height: 0;
-	background: url(../img/v2/bt_set_offon.png) no-repeat 0 0;
+.mod-manimenu .ico-upspeed,
+.mod-manimenu .ico-downspeed {
+    width: 12px;
+    height: 12px;
+    background: url(../../img/ico_updown.png) no-repeat;
 }
-.mod-setting-nav .nav-hd .bt-off {
-	background-position: 0 0;
+.mod-manimenu .ico-upspeed {
+    background-position: 0 0;
 }
-.mod-setting-nav .nav-hd .bt-on {
-	background-position: 0 -7px;
+.mod-manimenu .ico-downspeed {
+    background-position: 0 -19px;
 }
-.mod-setting-nav .nav-hd span,
-.mod-setting-nav .nav-hd i {
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
-	vertical-align: middle;
-	margin-right: 8px;
+.mod-manimenu th,
+.mod-manimenu td {
+    padding: 15px 5px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow:ellipsis;
 }
-.mod-setting-nav .nav-hd .ico {
-	margin-left: 16px;
-	width: 20px;
-	height: 49px;
-	background: url(../img/ico_set_nav.png) no-repeat;
+.mod-manimenu th {
+    background: #fafafa;
 }
-.mod-setting-nav .nav-hd .ico-set-upgrade {
-	background-position: 0 0;
+.mod-manimenu td {
+    padding: 5px;
 }
-.mod-setting-nav .nav-hd .ico-set-net {
-	background-position: 0 -50px;
+.mod-manimenu td.con {
+    color: #999;
+    word-break:keep-all;
 }
-.mod-setting-nav .nav-hd .ico-set-normal {
-	background-position: 0 -100px;
+.mod-manimenu td.center,
+.mod-manimenu th.center {
+    text-align: center;
 }
-.mod-setting-nav .nav-hd .ico-set-pro {
-	background-position: 0 -150px;
+.mod-manimenu .section {
+    margin-bottom: 25px;
 }
-
-
-.panel-del-confirm {
-	width: 380px;
-	font-size: 16px;
-	text-align: center;
+.mod-manimenu .section h4 {
+    padding: 5px 0 10px;
+    font-weight: normal;
 }
-.panel-del-confirm .ico-confirm {
-	width: 83px;
-	height: 74px;
-	background: url(../img/ico_confirm.png) no-repeat;
-}
-.panel-del-confirm em {
-	color: #ff7700;
-}
-.panel-add-psp .item-query {
-	margin-right: 10px;
-}
-.panel-add-psp .btn-search span {
-	padding-left: 26px;
-	padding-right: 26px;
-}
-.panel-add-psp .ico-search {
-	display: block;
-	width: 19px;
-	height: 19px;
-	background: url(../img/ico_search.png) no-repeat 0 0;
+.mod-manimenu .section h4 span,
+.mod-manimenu .section h4 i {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
 }
 
-.panel-add-psp {
-	width: 601px;
+.mod-manimenu .form-qos input.text {
+    width: 80px;
 }
-.panel-add-psp .help {
-	color: #888;
-	text-align: center;
-	padding: 83px 0;
+.mod-manimenu td .form-qos input.text {
+    width: 40px;
 }
-.panel-add-psp .result .tit {
-	color: #666;
-	padding: 10px 4px 5px;
+.mod-manimenu td .form-qos {
+    padding-top: 5px;
 }
-.panel-add-psp .noresult {
-	padding: 10px 4px;
-	color: #666;
+.mod-manimenu td .form-qos .item {
+    margin-bottom: 5px;
 }
-.panel-add-psp .noresult b {
-	color: #333;
+.mod-manimenu td .form-qos .item .k {
+    width: auto;
 }
-.panel-add-psp b.m {
-	color: #36b335;
+.mod-manimenu td.action .btn {
+    margin: 3px 0;
 }
-.panel-add-psp .table-acc td {
-	padding: 14px 20px;
-	border: 0;
-	border-bottom: 1px #ccc solid;
+.speedset .btns {
+    padding-top: 10px;
 }
-.panel-add-psp .table-acc .face {
-	vertical-align: middle;
-	margin-right: 15px;
+.speedset .btns .btn {
+    margin-right: 5px;
 }
-.panel-add-psp .table-acc .info {
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
-	vertical-align: middle;
+.mod-manimenu .models label input,
+.mod-manimenu .models label span {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
 }
-.panel-add-psp .table-acc .info h3 {
-	font-size: 16px;
+.mod-manimenu td .edit-mod {
+    display: none;
 }
-.panel-add-psp .table-acc .info p {
-	color: #666;
+.mod-manimenu td .read-mod {
+    display: block;
 }
+.mod-manimenu td.toedit .read-mod {
+    display: none;
+}
+.mod-manimenu td.toedit .edit-mod {
+    display: block;
+}
+
+#speedtest {
+    padding-left: 32px;
+    margin-bottom: 15px;
+}
+.ico-speedtest {
+    width: 88px;
+    height: 68px;
+    background: url(../img/v2/ico_speed_testing.png) no-repeat;
+}
+#speedtest .ico-speedtest {
+    float: left;
+    margin-right: 35px;
+}
+#speedtest .speedtest {
+    overflow: hidden;
+    zoom:1;
+}
+#speedtest .btns {
+    padding-top: 10px;
+    display: none;
+}
+#speedtest .btns .btn {
+    margin-right: 10px;
+}
+#speedtest .progress {
+    display: none;
+    margin-top: 10px;
+    width: 332px;
+    height: 8px;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    background: url(../img/v2/progress.gif) repeat-x 0 0;
+}
+#devloading {
+    margin-bottom: 15px;
+}
+/* 以下是我写的，或者拷贝的，认为是真正使用到到了的css */
