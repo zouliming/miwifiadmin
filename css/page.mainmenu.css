@@ -100,3 +100,35 @@
 .mod-mainmenu-panel td.toedit .edit-mod {
     display: block;
 }
+/* 翻页 */
+.mod-mainmenu-panel .pager{
+    display: block;
+    margin-top: 20px;
+}
+.mod-mainmenu-panel .pager .page_info{
+    display: inline-block;
+}
+.mod-mainmenu-panel .pager ul{
+    display: inline-block;
+    float: right;
+    margin-right: 100px;
+}
+.mod-mainmenu-panel .pager ul li{
+    display: inline;
+    line-height: 20px;
+}
+.mod-mainmenu-panel .pager .paginate_button{
+    padding: 3px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+.mod-mainmenu-panel .pager .paginate_button:hover{
+    color: #01a6e8;
+}
+.mod-mainmenu-panel .pager ul a.disabled,
+.mod-mainmenu-panel .pager ul a.disabled:hover{
+    color: #999;
+    cursor: default;
+    background-color: transparent;
+}

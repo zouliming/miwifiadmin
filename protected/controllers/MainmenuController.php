@@ -128,16 +128,23 @@ class MainmenuController extends Controller {
 				'order' => 'id desc,enable asc',
 			),
 			'pagination' => array(
-				'pageSize' => 20,
+				'pageSize' => 5,
+				'pageVar'=>'page'
 			),
 		));
 		$data = $dataProvider->getData();
 		echo CJSON::encode(Array(
 			'code' => 0,
-			'list' => $data
+			'list' => $data,
 		));
 	}
-
+	public function actionMenuCount(){
+		$c = Mainmenu::model()->count();
+		echo json_encode(array(
+			'code'=>0,
+			'itemCount'=>$c
+		));
+	}
 	/**
 	 * Manages all models.
 	 */

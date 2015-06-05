@@ -39,7 +39,7 @@ Yii::app()->clientScript
 		<h4>菜单列表 <i class="ico ico-refresh" id="refresh" title="刷新当前设备列表"></i></h4>
 
 		<div id="devloading" style="display: none;">加载中...</div>
-		<table width="100%" id="tableMenu" style="display: none">
+		<table width="100%" id="tableMenu" style="">
 			<thead>
 			<tr>
 				<th>ID</th>
@@ -49,20 +49,12 @@ Yii::app()->clientScript
 				<th>操作</th>
 			</tr>
 			</thead>
-			<tbody id="menulist"></tbody>
+			<tbody id="menulist">
+			</tbody>
 		</table>
+		<div id="pager" class="pager"></div>
 	</div>
 </div>
-<?php
-$jsUrl = Util::getJsUrl();
-Yii::app()->clientScript
-	->registerCoreScript('jquery')
-	->registerScriptFile($jsUrl . 'selectbeautify.js')
-	->registerScriptFile($jsUrl . 'qwrap.js')
-	->registerScriptFile($jsUrl . 'jquery.dialog.js')
-	->registerScriptFile($jsUrl . 'validate.js')
-	->registerScriptFile($jsUrl . 'util.js');
-?>
 <script type="tmpl/html" id="tplmenulist1">
     <tr data-id="{$id}">
     <form id="form{$id}" name="form{$id}">
@@ -99,7 +91,124 @@ Yii::app()->clientScript
         </form>
     </tr>
 </script>
+<?php
+$jsUrl = Util::getJsUrl();
+Yii::app()->clientScript
+	->registerCoreScript('jquery')
+	->registerScriptFile($jsUrl . 'selectbeautify.js')
+	->registerScriptFile($jsUrl . 'qwrap.js')
+	->registerScriptFile($jsUrl . 'jquery.dialog.js')
+	->registerScriptFile($jsUrl . 'validate.js')
+	->registerScriptFile($jsUrl . 'util.js');
+?>
 <script type="text/javascript">
+	!function($){
+		var Pager= function(element,options){
+			var t = this;
+			$.getJSON(options.infoUrl,function(rsp) {
+				if (rsp.code == 0) {
+					options.itemCount = rsp.itemCount;
+					t.init(element, options);
+				}
+			});
+		}
+		Pager.prototype = {
+			constructor:Pager,
+			init:function(element,options){
+				this.$element = $(element);
+				this.options = this.getOptions(options);
+				this.itemCount = this.options.itemCount;
+
+				this.currentPage = 1;
+				var p = Math.ceil(this.options.itemCount / this.options.pageSize);
+				this.totalPage = p;
+				this.initTemplate();
+				this.updateStatus();
+				this.addEvent();
+			},
+			initTemplate:function(){
+				var inHtml = "";
+				inHtml += this.options.pageinfoTemplate;
+				inHtml += this.options.paginationTemplate;
+				this.$element.html(inHtml);
+			},
+			updateStatus:function(){
+				var startIdx,endIdx,
+				pageinfoEle = this.$element.find('.page_info'),
+				ulEle = this.$element.find('ul');
+				startIdx = this.options.pageSize*(this.currentPage-1)+1;
+				endIdx = (this.options.pageSize*this.currentPage)>this.itemCount?this.itemCount:(this.options.pageSize*this.currentPage);
+
+				pageinfoEle.find("span.show_label").html("第"+startIdx+"条到"+endIdx+"条数据");
+				pageinfoEle.find("span.total_label").html("共"+this.itemCount+"条数据");
+				ulEle.find('a').removeClass('disabled');
+				if(this.currentPage==1){
+					ulEle.find('.first').addClass('disabled');
+					ulEle.find('.prev').addClass('disabled');
+				}
+				if(this.currentPage==this.totalPage){
+					ulEle.find('.last').addClass('disabled');
+					ulEle.find('.next').addClass('disabled');
+				}
+			},
+			addEvent:function(){
+				var that = this;
+				var ulEle = this.$element.find('ul');
+				ulEle.find('.paginate_button').on('click',function(e){
+					e.preventDefault();
+					var ele = $(this);
+					//如果已经disabled了，就停止
+					if(ele.hasClass('disabled')){
+						return false;
+					}
+					if(ele.hasClass('first')){
+						that.currentPage = 1;
+					}else if(ele.hasClass('prev')){
+						if(that.currentPage>1){
+							that.currentPage = that.currentPage-1;
+						}else{
+							that.currentPage = 1;
+						}
+					}else if(ele.hasClass('next')){
+						if(that.currentPage<that.totalPage-1){
+							that.currentPage = that.currentPage+1;
+						}else{
+							that.currentPage = that.totalPage;
+						}
+					}else if(ele.hasClass('last')){
+						that.currentPage = that.totalPage;
+					}
+					that.updateStatus();
+					modelMenu.menuStatus(that.currentPage);
+				});
+			},
+			getOptions: function (options) {
+				options = $.extend({}, $.fn.pager.defaults, options);
+				return options;
+			}
+		};
+		$.fn.pager = function (option) {
+			return this.each(function () {
+				var options = typeof option == 'object' && option;
+				new Pager(this,options);
+			})
+		};
+		$.fn.pager.Constructor = Pager;
+		$.fn.pager.defaults = {
+			pageSize: 5
+			, amountUrl:false
+			, pageinfoTemplate: '<div class="page_info"><span class="show_label"></span>，<span class="total_label"></span></div>'
+			, paginationTemplate: '<ul>'+
+			'<li><a href="#" class="paginate_button first">首页</a></li>'+
+			'<li><a href="#" class="paginate_button prev">上一页</a></li>'+
+			'<li><a href="#" class="paginate_button next">下一页</a></li>'+
+			'<li><a href="#" class="paginate_button last">末页</a></li>'+
+			'</ul>'
+			, html: false
+			, container: false
+		};
+	}(window.jQuery);
+
 	var modelMenu = (function () {
 		//渲染模板
 		function randerDevlist(rsp) {
@@ -254,8 +363,11 @@ Yii::app()->clientScript
 				$.selectBeautify();
 			},
 			//获取最新的菜单信息
-			menuStatus:function() {
-				$.getJSON('/mainmenu/menuinfo', {}, function (rsp) {
+			menuStatus:function(page) {
+				if(page===undefined){
+					page = 1;
+				}
+				$.getJSON('/mainmenu/menuinfo', {page:page}, function (rsp) {
 					$('#devloading').hide();
 					if (rsp.code == 0) {
 						randerDevlist(rsp);
@@ -279,5 +391,8 @@ Yii::app()->clientScript
 	}());
 	$(function () {
 		modelMenu.init();
+		$('#pager').pager({
+			infoUrl:'/mainmenu/menucount'
+		});
 	});
 </script>
