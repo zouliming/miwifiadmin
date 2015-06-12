@@ -122,25 +122,32 @@ class MainmenuController extends Controller {
 	}
 
 	public function actionMenuInfo() {
+		$page = $this->getGet('page');
+		$pageSize = $this->getGet('pageSize');
+		$c = Mainmenu::model()->count();
 		$dataProvider = new CActiveDataProvider('Mainmenu', array(
 			'criteria' => array(
 //				'condition' => '',
 				'order' => 'id desc,enable asc',
 			),
 			'pagination' => array(
-				'pageSize' => 5,
-				'pageVar'=>'page'
+				'currentPage'=>$page,
+				'pageSize'=>$pageSize,
 			),
 		));
-		$data = $dataProvider->getData();
+		$list = $dataProvider->getData();
 		echo CJSON::encode(Array(
 			'code' => 0,
-			'list' => $data,
+			'data' => array(
+				'count'=>$c,
+				'list'=>$list
+			),
 		));
 	}
 	public function actionMenuCount(){
 		$c = Mainmenu::model()->count();
 		echo json_encode(array(
+			'code'=>0,
 			'itemCount'=>$c
 		));
 	}

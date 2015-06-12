@@ -52,7 +52,6 @@ Yii::app()->clientScript
 			<tbody id="menulist">
 			</tbody>
 		</table>
-		<div id="pager" class="pager"></div>
 	</div>
 </div>
 <script type="tmpl/html" id="tplmenulist1">
@@ -104,36 +103,49 @@ Yii::app()->clientScript
 <script type="text/javascript">
 	!function($){
 		var Pager= function(element,options){
-			var t = this;
-			$.getJSON(options.infoUrl,function(rsp) {
-				options.itemCount = rsp.itemCount;
-				t.init(element, options);
-			});
+			this.init(element, options);
 		}
 		Pager.prototype = {
 			constructor:Pager,
 			init:function(element,options){
+				this.currentPage = 1;
 				this.$element = $(element);
 				this.options = this.getOptions(options);
-				this.itemCount = this.options.itemCount;
-
-				this.currentPage = 1;
-				var p = Math.ceil(this.options.itemCount / this.options.pageSize);
-				this.totalPage = p;
-				this.initTemplate();
-				this.updateStatus();
-				this.addEvent();
+				this.initPagination();
+				this.jisuan();
 			},
-			initTemplate:function(){
+			jisuan:function(){
+				var t=this;
+				$.getJSON(this.options.infoUrl,{page:this.currentPage,pageSize:this.options.pageSize},function(rsp) {
+					if (rsp.code == 0) {
+						t.itemCount = rsp.data.count;
+						var p = Math.ceil(t.itemCount / t.options.pageSize);
+						t.totalPage = p;
+						t.initTables(rsp.data.list);
+						t.updatePageStatus();
+					}
+				});
+			},
+			initTables:function(data){
+				this.options.renderData(data);
+			},
+			initPagination:function(){
+				//在table末尾创建分页html
+				this.initPageTemplate();
+				this.addPageEvent();
+			},
+			initPageTemplate:function(){
+				this.$element.after(this.options.pageHtml);
+				this.pageEle = this.$element.next("#pager");
 				var inHtml = "";
 				inHtml += this.options.pageinfoTemplate;
 				inHtml += this.options.paginationTemplate;
-				this.$element.html(inHtml);
+				this.pageEle.html(inHtml);
 			},
-			updateStatus:function(){
+			updatePageStatus:function(){
 				var startIdx,endIdx,
-				pageinfoEle = this.$element.find('.page_info'),
-				ulEle = this.$element.find('ul');
+					pageinfoEle = this.pageEle.find('.page_info'),
+					ulEle = this.pageEle.find('ul');
 				startIdx = this.options.pageSize*(this.currentPage-1)+1;
 				endIdx = (this.options.pageSize*this.currentPage)>this.itemCount?this.itemCount:(this.options.pageSize*this.currentPage);
 
@@ -149,9 +161,9 @@ Yii::app()->clientScript
 					ulEle.find('.next').addClass('disabled');
 				}
 			},
-			addEvent:function(){
+			addPageEvent:function(){
 				var that = this;
-				var ulEle = this.$element.find('ul');
+				var ulEle = this.pageEle.find('ul');
 				ulEle.find('.paginate_button').on('click',function(e){
 					e.preventDefault();
 					var ele = $(this);
@@ -176,8 +188,8 @@ Yii::app()->clientScript
 					}else if(ele.hasClass('last')){
 						that.currentPage = that.totalPage;
 					}
-					that.updateStatus();
-
+					that.jisuan();
+					//执行翻页回调
 					if(that.options.turnPageCallback){
 						that.options.turnPageCallback(that.currentPage);
 					}
@@ -198,6 +210,7 @@ Yii::app()->clientScript
 		$.fn.pager.defaults = {
 			pageSize: 5
 			, amountUrl:false
+			, pageHtml:'<div id="pager" class="pager"></div>'
 			, pageinfoTemplate: '<div class="page_info"><span class="show_label"></span>，<span class="total_label"></span></div>'
 			, paginationTemplate: '<ul>'+
 			'<li><a href="#" class="paginate_button first">首页</a></li>'+
@@ -212,9 +225,9 @@ Yii::app()->clientScript
 
 	var modelMenu = (function () {
 		//渲染模板
-		function randerDevlist(rsp) {
+		function randerDevlist(data) {
 			var tpl,
-				menulist = rsp.list,
+				menulist = data,
 				arrdevlist = [],
 				htmlmenulist,
 				tbody,
@@ -358,22 +371,14 @@ Yii::app()->clientScript
 		}
 
 		return {
-			init: function () {
-				modelMenu.menuStatus();
+			init: function (data) {
+				modelMenu.menuStatus(data);
 				addEvent();
 				$.selectBeautify();
 			},
 			//获取最新的菜单信息
-			menuStatus:function(page) {
-				if(page===undefined){
-					page = 1;
-				}
-				$.getJSON('/mainmenu/menuinfo', {page:page}, function (rsp) {
-					$('#devloading').hide();
-					if (rsp.code == 0) {
-						randerDevlist(rsp);
-					}
-				});
+			menuStatus:function(data) {
+				randerDevlist(data);
 			},
 			addMenu:function(data){
 				$.post('create', data, function (rsp) {
@@ -387,16 +392,16 @@ Yii::app()->clientScript
 			},
 			resetForm:function(){
 				$('#addForm').find('input:not(".dummy")').val('');
-			},
-			test: function () {
-				console.log('回调函数被调用了');
 			}
 		}
 	}());
 	$(function () {
-		modelMenu.init();
-		$('#pager').pager({
-			infoUrl:'/mainmenu/menucount',
+		$('#tableMenu').pager({
+			infoUrl:'/mainmenu/menuinfo',
+			pagerSelector:"#pager",
+			renderData:function(data){
+				modelMenu.init(data);
+			},
 			turnPageCallback:function(page){
 				modelMenu.menuStatus(page);
 			}
