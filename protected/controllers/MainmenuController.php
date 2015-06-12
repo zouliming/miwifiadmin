@@ -141,7 +141,6 @@ class MainmenuController extends Controller {
 	public function actionMenuCount(){
 		$c = Mainmenu::model()->count();
 		echo json_encode(array(
-			'code'=>0,
 			'itemCount'=>$c
 		));
 	}

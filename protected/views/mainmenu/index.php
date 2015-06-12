@@ -106,10 +106,8 @@ Yii::app()->clientScript
 		var Pager= function(element,options){
 			var t = this;
 			$.getJSON(options.infoUrl,function(rsp) {
-				if (rsp.code == 0) {
-					options.itemCount = rsp.itemCount;
-					t.init(element, options);
-				}
+				options.itemCount = rsp.itemCount;
+				t.init(element, options);
 			});
 		}
 		Pager.prototype = {
@@ -179,7 +177,10 @@ Yii::app()->clientScript
 						that.currentPage = that.totalPage;
 					}
 					that.updateStatus();
-					modelMenu.menuStatus(that.currentPage);
+
+					if(that.options.turnPageCallback){
+						that.options.turnPageCallback(that.currentPage);
+					}
 				});
 			},
 			getOptions: function (options) {
@@ -386,13 +387,19 @@ Yii::app()->clientScript
 			},
 			resetForm:function(){
 				$('#addForm').find('input:not(".dummy")').val('');
+			},
+			test: function () {
+				console.log('回调函数被调用了');
 			}
 		}
 	}());
 	$(function () {
 		modelMenu.init();
 		$('#pager').pager({
-			infoUrl:'/mainmenu/menucount'
+			infoUrl:'/mainmenu/menucount',
+			turnPageCallback:function(page){
+				modelMenu.menuStatus(page);
+			}
 		});
 	});
 </script>
