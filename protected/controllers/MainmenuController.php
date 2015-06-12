@@ -124,14 +124,17 @@ class MainmenuController extends Controller {
 	public function actionMenuInfo() {
 		$page = $this->getGet('page');
 		$pageSize = $this->getGet('pageSize');
+		$pageSize = $pageSize?$pageSize:5;
+		$page = $page?$page:1;
+
 		$c = Mainmenu::model()->count();
 		$dataProvider = new CActiveDataProvider('Mainmenu', array(
 			'criteria' => array(
-//				'condition' => '',
+				//'condition' => '',
 				'order' => 'id desc,enable asc',
 			),
 			'pagination' => array(
-				'currentPage'=>$page,
+				'currentPage'=>intval($page-1),
 				'pageSize'=>$pageSize,
 			),
 		));
@@ -142,13 +145,6 @@ class MainmenuController extends Controller {
 				'count'=>$c,
 				'list'=>$list
 			),
-		));
-	}
-	public function actionMenuCount(){
-		$c = Mainmenu::model()->count();
-		echo json_encode(array(
-			'code'=>0,
-			'itemCount'=>$c
 		));
 	}
 	/**
