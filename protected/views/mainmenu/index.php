@@ -98,7 +98,7 @@ Yii::app()->clientScript
 	->registerScriptFile($jsUrl . 'qwrap.js')
 	->registerScriptFile($jsUrl . 'jquery.dialog.js')
 	->registerScriptFile($jsUrl . 'validate.js')
-	->registerScriptFile($jsUrl . 'datapage.js')
+	->registerScriptFile($jsUrl . 'pageTable.js')
 	->registerScriptFile($jsUrl . 'util.js');
 ?>
 <script type="text/javascript">
@@ -276,7 +276,6 @@ Yii::app()->clientScript
 	$(function () {
 		$('#tableMenu').pager({
 			infoUrl:'/mainmenu/menuinfo',
-			pagerSelector:"#pager",
 			renderData:function(data){//指怎么处理当前数据
 				modelMenu.menuStatus(data);
 			}

@@ -2,15 +2,20 @@
  * Created by liming.zou on 2015/6/4.
  * 还没想好怎么写，丢人啊！
  * 例子
-<div id="pager" class="pager">
-    <div id="pageno" style="height: 20px;"></div>
+ <div id="pager" class="pager">
+    <div class="page_info">
+        <span class="show_label">第1页，第1条到5条数据</span>，<span class="total_label">共18条数据</span>
+    </div>
     <ul>
-    <li><a href="#" class="paginate_button first">首页</a></li>
-    <li><a href="#" class="paginate_button prev">上一页</a></li>
-    <li><a href="#" class="paginate_button next">下一页</a></li>
-    <li><a href="#" class="paginate_button last">末页</a></li>
-    </ul>
-</div>
+         <li><a href="#" class="paginate_button first disabled">首页</a></li>
+         <li><a href="#" class="paginate_button prev disabled">上一页</a></li>
+         <li><a href="#" class="paginate_button next">下一页</a></li>
+         <li><a href="#" class="paginate_button last">末页</a></li>
+     </ul>
+ </div>
+ 必须参数：
+ @param infoUrl 获取数据的接口url，返回信息：比如{"code":0,"data":{"count":"18","list":[{"id":"19","title":"oo","url":"oo","enable":"1"}]}}
+ code为0代表成功，data表示数据，count表示数量，list表示当前页的数据信息
  */
 !function($){
     var Pager= function(element,options){
@@ -18,11 +23,13 @@
     }
     Pager.prototype = {
         constructor:Pager,
+        //通用
         init:function(element,options){
             this.currentPage = 1;
             this.$element = $(element);
             this.options = this.getOptions(options);
-            this.initPagination();
+            this.initPageTemplate();
+            this.addPageEvent();
             this.jisuan();
         },
         jisuan:function(){
@@ -37,14 +44,11 @@
                 }
             });
         },
-        renderTables:function(data){
-            this.options.renderData(data);
+        getOptions: function (options) {
+            options = $.extend({}, $.fn.pager.defaults, options);
+            return options;
         },
-        initPagination:function(){
-            //在table末尾创建分页html
-            this.initPageTemplate();
-            this.addPageEvent();
-        },
+        //分页相关
         initPageTemplate:function(){
             this.$element.after(this.options.pageHtml);
             this.pageEle = this.$element.next("#pager");
@@ -102,9 +106,24 @@
                 that.jisuan();
             });
         },
-        getOptions: function (options) {
-            options = $.extend({}, $.fn.pager.defaults, options);
-            return options;
+        //表格相关
+        renderTables:function(data){
+            if(this.options.renderData){
+                this.options.renderData(data);
+            }else{
+                this.defaultRenderTables(data);
+            }
+        },
+        defaultRenderTables:function(data){
+            var strHtml = "";
+            $.each(data,function(i,n){
+                strHtml += '<tr>';
+                $.each(n,function(j,k){
+                    strHtml += '<td>'+k+'</td>';
+                });
+                strHtml += '</tr>';
+            });
+            this.$element.find('tbody').html(strHtml);
         }
     };
     $.fn.pager = function (option) {
@@ -116,7 +135,6 @@
     $.fn.pager.Constructor = Pager;
     $.fn.pager.defaults = {
         pageSize: 5
-        , amountUrl:false
         , pageHtml:'<div id="pager" class="pager"></div>'
         , pageinfoTemplate: '<div class="page_info"><span class="show_label"></span>，<span class="total_label"></span></div>'
         , paginationTemplate: '<ul>'+
@@ -125,7 +143,7 @@
         '<li><a href="#" class="paginate_button next">下一页</a></li>'+
         '<li><a href="#" class="paginate_button last">末页</a></li>'+
         '</ul>'
-        , html: false
+        , renderData: false
         , container: false
     };
 }(window.jQuery);
