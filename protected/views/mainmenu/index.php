@@ -77,6 +77,7 @@ Yii::app()->clientScript
         </td>
         <td>
         <div class="read-mod">
+            <a href="/asidemenu/add?pid={$id}" class="btn btn-small"><span>添加子菜单</span></a>
 			<button type="button" class="btn btn-small btn-editqos"><span>编辑</span></button>
 			{if($level != 0)}
 				<button type="button" class="btn btn-small btn-del-qoslimit"><span>删除</span></button>
@@ -227,7 +228,8 @@ Yii::app()->clientScript
 			$('#refresh').on('click', function (e) {
 				e.preventDefault();
 				$('#devloading').show();
-				modelMenu.menuStatus();
+				modelMenu.updateData();
+				$('#devloading').hide();
 			});
 			$("#addBtn").on('click',function(e){
 				e.preventDefault();
@@ -250,9 +252,13 @@ Yii::app()->clientScript
 		}
 
 		return {
-			init: function () {
+			init: function (a) {
+				this.pageTableObject = a;
 				addEvent();
 				$.selectBeautify();
+			},
+			updateData:function(){
+				this.pageTableObject.jump(1);
 			},
 			//获取最新的菜单信息
 			menuStatus:function(data) {
@@ -261,7 +267,7 @@ Yii::app()->clientScript
 			addMenu:function(data){
 				$.post('create', data, function (rsp) {
 					if (rsp.code === 0) {
-						modelMenu.menuStatus();
+						modelMenu.updateData();
 						modelMenu.resetForm();
 					} else {
 						console.log('提示错误');
@@ -274,12 +280,12 @@ Yii::app()->clientScript
 		}
 	}());
 	$(function () {
-		$('#tableMenu').pager({
+		var a = $('#tableMenu').pager({
 			infoUrl:'/mainmenu/menuinfo',
 			renderData:function(data){//指怎么处理当前数据
 				modelMenu.menuStatus(data);
 			}
 		});
-		modelMenu.init();
+		modelMenu.init(a);
 	});
 </script>

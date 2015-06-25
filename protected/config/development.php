@@ -10,12 +10,11 @@ return array(
     'import' => array(
         'application.models.*',
         'application.components.*',
-        'application.extensions.*',
-        'application.widgets.*',
-        'application.extensions.redis.*'
+//        'application.extensions.*',
+//        'application.widgets.*',
+//        'application.extensions.redis.*'
     ),
     'modules' => array(
-        'x',
         'gii' => array(
             'class' => 'system.gii.GiiModule',
             'password' => 'zouliming',
@@ -45,10 +44,9 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
-        //'errorHandler' => array(
-        // use 'site/error' action to display errors
-        //'errorAction' => 'site/error',
-        //),
+        'errorHandler' => array(
+//            'errorAction' => 'site/error',
+        ),
         'db' => array(
             'connectionString' => "mysql:host=127.0.0.1;dbname=miwifiadmin",
             'emulatePrepare' => true,
@@ -63,9 +61,9 @@ return array(
                     'class' => 'CFileLogRoute',
                     'levels' => 'info,error, warning',
                 ),
-                array(
-                    'class' => 'CWebLogRoute',
-                ),
+//                array(
+//                    'class' => 'CWebLogRoute',
+//                ),
             ),
         ),
         'cache' => array(
@@ -95,10 +93,10 @@ return array(
             )
         ),
     ),
-    'params' => array(
-        'appid' => 10010,
-        'mid' => 10010,
-        'jsversion' => '20150312',
-        'environment' => 'dist'
-    )
+//    'params' => array(
+//        'appid' => 10010,
+//        'mid' => 10010,
+//        'jsversion' => '20150312',
+//        'environment' => 'dist'
+//    )
 );

@@ -3,24 +3,24 @@
 class SiteController extends Controller {
 
     public function filters() {
-//                return array(
-//                        'accessControl', // perform access control for CRUD operations
-//                );
+                return array(
+                        'accessControl', // perform access control for CRUD operations
+                );
     }
 
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('login', 'test', 'blank', 'status', 'index', 'equipments', 'content', 'substance'),
+                'actions' => array('login', 'test', 'blank', 'status', 'equipments', 'content', 'substance'),
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('indexView', 'logout'),
+                'actions' => array( 'index','indexView', 'logout','manage'),
                 'users' => array('@'),
             ),
-            array('deny', // deny all users
-                'users' => array('*'),
-            ),
+//            array('deny', // deny all users
+//                'users' => array('*'),
+//            ),
         );
     }
 
@@ -35,12 +35,7 @@ class SiteController extends Controller {
                         'title' => '所有菜单',
                         'href' => 'indexMenu',
                         'url' => '/mainmenu/index',
-                    ),
-                    array(
-                        'title' => '添加菜单',
-                        'href' => 'addMenu',
-                        'url' => '/mainmenu/create',
-                    ),
+                    )
                 )
             ),
             array(
@@ -118,6 +113,18 @@ class SiteController extends Controller {
         Yii::app()->user->logout();
         $this->redirect(Yii::app()->homeUrl);
     }
+	/**
+	 * This is the action to handle external exceptions.
+	 */
+	public function actionError() {
+		$this->layout = "bootstrap";
+		if ($error = Yii::app()->errorHandler->error) {
+			if (Yii::app()->request->isAjaxRequest)
+				echo $error['message'];
+			else
+				$this->render('error', $error);
+		}
+	}
 
     //子页面
     public function actionContent() {

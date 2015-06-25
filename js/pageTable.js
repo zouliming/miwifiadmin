@@ -32,6 +32,10 @@
             this.addPageEvent();
             this.jisuan();
         },
+        jump:function(n){
+            this.currentPage = n;
+            this.jisuan();
+        },
         jisuan:function(){
             var t=this;
             $.getJSON(this.options.infoUrl,{page:this.currentPage,pageSize:this.options.pageSize},function(rsp) {
@@ -127,10 +131,9 @@
         }
     };
     $.fn.pager = function (option) {
-        return this.each(function () {
-            var options = typeof option == 'object' && option;
-            new Pager(this,options);
-        })
+        var firstEle = this.first();
+        var options = typeof option == 'object' && option;
+        return new Pager(firstEle,options);
     };
     $.fn.pager.Constructor = Pager;
     $.fn.pager.defaults = {

@@ -1,5 +1,5 @@
 <?php
-Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'page.index.css');
+Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'original/page.index.css');
 ?>
 <div id="netdetecte" class="mod-sect mod-net-check net-check-warn" style="display:none;">
     <p class="msg">

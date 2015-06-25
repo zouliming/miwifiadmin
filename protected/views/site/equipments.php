@@ -1,5 +1,5 @@
 <?php
-Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'page.manage.css');
+Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'original/page.manage.css');
 ?>
 <div id="bd-hd">在这里查看目前接入路由器的设备，并对设备进行管理
     <a href="#" class="btn btn-small refresh"

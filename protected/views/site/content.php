@@ -12,7 +12,7 @@
 <meta http-equiv="refresh" content="0; url=http://miwifi.com/blockie6.html" />
 <![endif]-->
 <title>小米路由器</title>
-<link rel="stylesheet" href="<?php echo Util::getCssUrl();?>page.set.qos.css?v=0.0.3"/>
+<link rel="stylesheet" href="<?php echo Util::getCssUrl();?>original/page.set.qos.css?v=0.0.3"/>
 </head>
 <body>
 <!-- upgread -->

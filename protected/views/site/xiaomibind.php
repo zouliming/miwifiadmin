@@ -6,7 +6,6 @@
 
         <li><a href="#"><img src="/img/pic_client_ad.png" alt="" /> <span>Android</span></a></li>
     </ul>
-
     <div class="dur"></div>
 </div>
 <div id="downloadMask" style="display:none; position:absolute; left:0; top:0; z-index:100;"></div>
