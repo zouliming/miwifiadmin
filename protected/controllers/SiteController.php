@@ -18,9 +18,9 @@ class SiteController extends Controller {
                 'actions' => array( 'index','indexView', 'logout','manage'),
                 'users' => array('@'),
             ),
-//            array('deny', // deny all users
-//                'users' => array('*'),
-//            ),
+            array('deny', // deny all users
+                'users' => array('*'),
+            ),
         );
     }
 
@@ -28,6 +28,16 @@ class SiteController extends Controller {
         $this->layout = "column3";
         //二级菜单内容
         $this->asideMenu = array(
+	        array(
+		        'sub'=>'原生功能',
+		        'children'=>array(
+			        array(
+				        'title'=>'Qos状态',
+				        'href'=>'content',
+				        'url'=>'/site/content'
+			        )
+		        )
+	        ),
             array(
                 'sub' => '一级菜单管理',
                 'children' => array(
@@ -66,43 +76,10 @@ class SiteController extends Controller {
     public function actionPreview($view) {
         $this->render($view);
     }
-
+	//首页
     public function actionIndex() {
-        $this->layout = "column3";
-        //二级菜单内容
-        $this->asideMenu = array(
-            array(
-                'sub' => '路由器模块',
-                'children' => array(
-                    array(
-                        'title' => '查看内容',
-                        'href' => 'content',
-                        'url' => '/site/content',
-                    ),
-                    array(
-                        'title' => '没想好',
-                        'href' => '#',
-                        'url' => '#',
-                    )
-                )
-            ),
-            array(
-                'sub' => '系统设置',
-                'children' => array(
-                    array(
-                        'title' => '没想好',
-                        'href' => '#',
-                        'url' => '#',
-                    ),
-                    array(
-                        'title' => '没想好',
-                        'href' => '#',
-                        'url' => '#',
-                    )
-                )
-            ),
-        );
-        $this->render('index', array());
+	    $this->layout = "column1";
+	    $this->render('status');
     }
 
     public function actionLogin() {
@@ -137,15 +114,10 @@ class SiteController extends Controller {
         $this->render('equipments');
     }
 
-    //路由状态
+    //没用
     public function actionStatus() {
         $this->layout = "column1";
-        $this->render('status');
-    }
-
-    public function actionSubstance() {
-        $this->layout = "column2";
-        $this->render('substance');
+        $this->renderText('没用，仅仅告诉你这个图标可以用');
     }
 
     //view模块，以后会废弃

@@ -1,31 +1,17 @@
 <?php
 Yii::app()->clientScript
 	->registerCssFile(Util::getCssUrl() . 'page.default.css')
-	->registerCssFile(Util::getCssUrl() . 'page.mainmenu.css')
+	->registerCssFile(Util::getCssUrl() . 'page.weight.css')
 	->registerCssFile(Util::getCssUrl() . 'dialog.css');
 ?>
-<div class="mod-mainmenu-panel">
+<div class="mod-weight-panel">
 	<div class="section">
-		<h4>新建菜单</h4>
+		<h4>记录您的体重</h4>
 		<form id="addForm" class="form form-horizontal">
 			<div class="item">
-				<label class="k" for="Mainmenu_title">菜单名称</label>
+				<label class="k" for="Mainmenu_title">体重</label>
 				<span class="v">
-					<input size="20" maxlength="20" class="text input-large" name="Mainmenu[title]" id="Mainmenu_title" type="text" value="">
-				</span>
-				<em class="t"></em>
-			</div>
-			<div class="item">
-				<label class="k" for="Mainmenu_url">链接</label>
-				<span class="v">
-					<input size="20" maxlength="20" class="text input-large" name="Mainmenu[url]" id="Mainmenu_url" type="text" value="">
-				</span>
-				<em class="t"></em>
-			</div>
-			<div class="item">
-				<label class="k" for="Mainmenu_enable">启用</label>
-				<span class="v">
-				<?php echo CHtml::dropDownList('Mainmenu[enable]', 1, array(0 => '禁用', 1 => '启用'), array('class' => 'beautify')) ?>
+					<input size="20" maxlength="20" class="text input-large" name="Weight[weight]" id="Mainmenu_title" type="text" value="">
 				</span>
 				<em class="t"></em>
 			</div>
@@ -36,52 +22,41 @@ Yii::app()->clientScript
 		</form>
 	</div>
 	<div class="section" style="display: block;">
-		<h4>菜单列表 <i class="ico ico-refresh" id="refresh" title="刷新当前设备列表"></i></h4>
+		<h4>体重 <i class="ico ico-refresh" id="refresh" title="刷新当前表格数据"></i></h4>
 
 		<div id="devloading" style="display: none;">加载中...</div>
-		<table width="100%" id="tableMenu" style="">
+		<table width="100%" id="tableWeight" style="">
 			<thead>
 			<tr>
 				<th>ID</th>
-				<th>标题</th>
-				<th>链接</th>
-				<th>状态</th>
+				<th>体重</th>
+				<th>日期</th>
 				<th>操作</th>
 			</tr>
 			</thead>
-			<tbody id="menulist">
-			</tbody>
+			<tbody></tbody>
 		</table>
 	</div>
 </div>
-<script type="tmpl/html" id="tplmenulist1">
+
+<script type="tmpl/html" id="tpllist1">
     <tr data-id="{$id}">
     <form id="form{$id}" name="form{$id}">
         <td>{$id}</td>
         <td>
-            <div class="read-mod">{$title}</div>
-            <div class="edit-mod"><input name="title" type="text" value="{$title}"></div>
+            <div class="read-mod">{$weight}</div>
+            <div class="edit-mod"><input name="weight" type="text" value="{$weight}"></div>
         </td>
         <td>
-            <div class="read-mod">{$url}</div>
-            <div class="edit-mod"><input name="url" type="text" value="{$url}"></div>
+            <div class="read-mod">{$date}</div>
+            <div class="edit-mod"><input name="date" type="text" value="{$date}"></div>
         </td>
         <td>
-            <div class="read-mod">{$enableLabel}</div>
-            <div class="edit-mod">
-            <select name="enable">
-				<option value="0" {if($enable == 0)}selected="selected"{/if}>禁用</option>
-				<option value="1" {if($enable == 1)}selected="selected"{/if}>启用</option>
-			</select>
-            </div>
-        </td>
-        <td>
-        <div class="read-mod">
-            <a href="/asidemenu/add?pid={$id}" class="btn btn-small"><span>添加子菜单</span></a>
-			<button type="button" class="btn btn-small btn-editqos"><span>编辑</span></button>
-			{if($level != 0)}
-				<button type="button" class="btn btn-small btn-del-qoslimit"><span>删除</span></button>
-			{/if}
+                <div class="read-mod">
+                        <button type="button" class="btn btn-small btn-editqos"><span>编辑</span></button>
+                        {if($level != 0)}
+                                <button type="button" class="btn btn-small btn-del-qoslimit"><span>删除</span></button>
+                        {/if}
 		</div>
 		<div class="edit-mod">
 			<button type="button" class="btn btn-small btn-set-qoslimit"><span>确认</span></button>
@@ -103,48 +78,42 @@ Yii::app()->clientScript
 	->registerScriptFile($jsUrl . 'util.js');
 ?>
 <script type="text/javascript">
-	var modelMenu = (function () {
-		//渲染模板
-		function randerDevlist(data) {
-			var tpl,
-				menulist = data,
+        var modelWeight = (function(){
+                function randerDevlist(template,table,columnCount,data) {
+                        var tpl,
+				datalist = data,
 				arrdevlist = [],
 				htmlmenulist,
 				tbody,
 				colspan,
 				table;
-			$('.table-devices').hide();
-			tpl = $('#tplmenulist1').html();
-			tbody = $('#menulist');
-			colspan = 5;
-			table = $('#tableMenu');
-			if (menulist.length == 0) {
+			tpl = $(template).html();
+			table = $(table);
+			tbody = table.find('tbody');
+			colspan = columnCount;
+			if (datalist.length === 0) {
 				tbody.html('<tr><td colspan="' + colspan + '">无数据</td></tr>');
 				return;
 			}
-			for (var i = 0; i < menulist.length; i++) {
+			for (var i = 0; i < datalist.length; i++) {
 				var index = i,
-					id = menulist[i].id,
-					title = menulist[i].title,
-					url = menulist[i].url,
-					enable = menulist[i].enable,
+					id = datalist[i].id,
+					weight = datalist[i].weight,
+					date = datalist[i].date,
 					tpldata = {
 						index: index,
 						id: id,
-						title: title,
-						url: url,
-						enable: enable,
-						enableLabel: ['禁用', '启用'][enable]
+						weight: weight,
+						date: date
 					};
 				arrdevlist.push(tpl.tmpl(tpldata));
 			}
 			htmlmenulist = arrdevlist.join('');
 			tbody.html(htmlmenulist);
 			table.show();
-		}
-
-		function addEvent() {
-			//编辑
+                }
+                function addEvent(){
+                        //编辑
 			$('body').delegate('.btn-editqos', 'click', function (e) {
 				e.preventDefault();
 				var root = $(e.target).parents('tr');
@@ -163,14 +132,14 @@ Yii::app()->clientScript
 			//删除
 			$('body').delegate('.btn-del-qoslimit', 'click', function (e) {
 				e.preventDefault();
-				var delqos = (function (evt) {
+				var delData = (function (evt) {
 					var e = evt;
 					return function () {
 						var root = $(e.target).parents('tr'),
 							id = root.attr('data-id');
 						$.post('delete/' + id, {}, function (rsp) {
 							if (rsp.code == 0) {
-								modelMenu.menuStatus();
+								modelWeight.updateData();
 							} else {
 								alert(rsp.msg);
 							}
@@ -178,10 +147,10 @@ Yii::app()->clientScript
 					}
 				})(e);
 				window.top.$.dialog({
-					title: '删除菜单',
-					content: '你确定要这个菜单项目吗？',
+					title: '删除数据',
+					content: '你确定要这条数据吗？',
 					ok: function () {
-						delqos();
+						delData();
 					},
 					cancel: function () {
 					}
@@ -193,31 +162,25 @@ Yii::app()->clientScript
 				var root = $(this).parents('tr'),
 					formName = root.find('form').attr('name'),
 					id = root.attr('data-id'),
-					title = root.find('input[name=title]').val(),
-					url = root.find('input[name=url]').val(),
-					enable = root.find('select[name=enable]').val(),
+					weight = root.find('input[name=weight]').val(),
+					date = root.find('input[name=date]').val(),
 					requestData = {
-						Mainmenu: {
-							title: title,
-							url: url,
-							enable: enable
+						Weight: {
+							weight: weight,
+							date: date
 						}
 					},
 					requestURL = 'update/' + id,
 					validRules = [{
-						name: 'title',
-						display: '标题',
-						rules: 'required|max_length[20]|min_length[2]'
-					}, {
-						name: 'url',
-						display: '链接',
-						rules: 'required|max_length[20]|min_length[2]'
+						name: 'Weight[weight]',
+						display: '体重',
+						rules: 'required|numeric'
 					}],
 					validate = FormValidator.checkAll(formName, validRules);
 				if (validate) {
 					$.post(requestURL, requestData, function (rsp) {
 						if (rsp.code === 0) {
-                                                        modelMenu.updateData();
+							modelWeight.updateData();
 						} else {
 							alert(rsp.msg);
 						}
@@ -228,47 +191,52 @@ Yii::app()->clientScript
 			$('#refresh').on('click', function (e) {
 				e.preventDefault();
 				$('#devloading').show();
-				modelMenu.updateData();
+				modelWeight.updateData();
 				$('#devloading').hide();
 			});
-			$("#addBtn").on('click',function(e){
+                        $("#addBtn").on('click',function(e){
 				e.preventDefault();
 				var data = $('#addForm').serialize();
 				var validator = FormValidator.checkAll('addForm',[
 					{
-						name: 'Mainmenu[title]',
-						display: '标题',
-						rules: 'required|max_length[20]|min_length[2]'
-					}, {
-						name: 'Mainmenu[url]',
-						display: '链接',
-						rules: 'required|max_length[20]|min_length[2]'
+						name: 'Weight[weight]',
+						display: '体重',
+						rules: 'required|numeric'
 					}
 				]);
 				if(validator){
-					modelMenu.addMenu(data);
+					modelWeight.addMenu(data);
 				}
 			});
-		}
-
-		return {
-			init: function (a) {
+                }
+                return {
+                        init: function (a) {
 				this.pageTableObject = a;
 				addEvent();
 				$.selectBeautify();
 			},
+                        model:function(){
+                                return {
+                                        'name':'Weight',
+                                        'model':[
+                                                'id',
+                                                'weight',
+                                                'date',
+                                        ]
+                                };
+                        },
 			updateData:function(){
 				this.pageTableObject.jump(1);
 			},
-			//获取最新的菜单信息
+                        //获取最新的菜单信息
 			menuStatus:function(data) {
-				randerDevlist(data);
+				randerDevlist('#tpllist1','#tableWeight',4,data);
 			},
-			addMenu:function(data){
-				$.post('create', data, function (rsp) {
+                        addMenu:function(data){
+				$.post('add', data, function (rsp) {
 					if (rsp.code === 0) {
-						modelMenu.updateData();
-						modelMenu.resetForm();
+						modelWeight.updateData();
+						modelWeight.resetForm();
 					} else {
 						console.log('提示错误');
 					}
@@ -277,15 +245,16 @@ Yii::app()->clientScript
 			resetForm:function(){
 				$('#addForm').find('input:not(".dummy")').val('');
 			}
-		}
-	}());
+                };
+        }());
+        
 	$(function () {
-		var a = $('#tableMenu').pager({
-			infoUrl:'/mainmenu/menuinfo',
+		var a = $('#tableWeight').pager({
+			infoUrl:'/weight/alldata',
 			renderData:function(data){//指怎么处理当前数据
-				modelMenu.menuStatus(data);
+                                modelWeight.menuStatus(data);
 			}
 		});
-		modelMenu.init(a);
+		modelWeight.init(a);
 	});
 </script>

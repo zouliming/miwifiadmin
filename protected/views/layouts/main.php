@@ -68,7 +68,7 @@
         </script>
         <![endif]-->
         <?php 
-        $this->beginContent('xiaomibind');
+        $this->beginContent('//site/xiaomibind');
         $this->endContent();
         ?>
     </body>

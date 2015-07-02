@@ -11,30 +11,32 @@
                 <div class="aside">
                     <div class="mod-setting-nav" style="height: 1011px;">
                         <ul class="nav-list clearfix">
+                            <?php foreach($this->menu as $k=>$v){ ?>
                             <li class="nav-item">
                                 <h3 class="nav-hd">
-                                    <a target="setting" href="#"><span>WiFi设置</span></a>
+                                    <a target="setting" href="#!<?php echo $k;?>"><span><?php echo $v['label'];?></span></a>
                                 </h3>
                             </li>
-                            <li class="nav-item">
-                                <h3 class="nav-hd">
-                                    <a target="setting" href="#"><span>外网设置</span></a>
-                                </h3>
-                            </li>
-                            <li class="nav-item">
-                                <h3 class="nav-hd">
-                                    <a target="setting" href="#"><span>内网设置</span></a>
-                                </h3>
-                            </li>
-                            <li class="nav-item">
-                                <h3 class="nav-hd">
-                                    <a target="setting" href="#"><span>WAN口速率</span></a>
-                                </h3>
-                            </li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<script type="text/javascript">
+<?php
+$urlMap = array();
+foreach($this->menu as $k=>$v){
+        $urlMap[$k] = $v['href'];
+}
+?>
+var urlMap = <?php echo json_encode($urlMap);?>;
+</script>
+<?php
+Yii::app()->clientScript->registerScript('asideMenu', "
+$(function () {
+        $(global_event).trigger('set:map');
+});",CClientScript::POS_END);
+?>
 <?php $this->endContent(); ?>

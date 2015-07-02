@@ -1,0 +1,134 @@
+/* mainmenu index */
+
+.mod-weight-panel{
+    margin: 30px 60px 0;
+}
+.mod-weight-panel .ico-refresh {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    background: url(../../img/v2/ico_refresh.png) no-repeat;
+}
+.mod-weight-panel .ico-upspeed,
+.mod-weight-panel .ico-downspeed {
+    width: 12px;
+    height: 12px;
+    background: url(../../img/ico_updown.png) no-repeat;
+}
+.mod-weight-panel .ico-upspeed {
+    background-position: 0 0;
+}
+.mod-weight-panel .ico-downspeed {
+    background-position: 0 -19px;
+}
+.mod-weight-panel th,
+.mod-weight-panel td {
+    padding: 15px 5px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.mod-weight-panel th {
+    background: #fafafa;
+}
+.mod-weight-panel td {
+    padding: 5px;
+}
+.mod-weight-panel td.con {
+    color: #999;
+    word-break:keep-all;
+}
+.mod-weight-panel td.center,
+.mod-weight-panel th.center {
+    text-align: center;
+}
+.mod-weight-panel .section {
+    margin-bottom: 25px;
+}
+.mod-weight-panel .section h4 {
+    padding: 5px 0 10px;
+    font-weight: normal;
+}
+.mod-weight-panel .section h4 span,
+.mod-weight-panel .section h4 i {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+
+.mod-weight-panel .form-qos input.text {
+    width: 80px;
+}
+.mod-weight-panel td .form-qos input.text {
+    width: 40px;
+}
+.mod-weight-panel td .form-qos {
+    padding-top: 5px;
+}
+.mod-weight-panel td .form-qos .item {
+    margin-bottom: 5px;
+}
+.mod-weight-panel td .form-qos .item .k {
+    width: auto;
+}
+.mod-weight-panel td.action .btn {
+    margin: 3px 0;
+}
+.speedset .btns {
+    padding-top: 10px;
+}
+.speedset .btns .btn {
+    margin-right: 5px;
+}
+.mod-weight-panel .models label input,
+.mod-weight-panel .models label span {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+.mod-weight-panel td .edit-mod {
+    display: none;
+}
+.mod-weight-panel td .read-mod {
+    display: block;
+}
+.mod-weight-panel td.toedit .read-mod {
+    display: none;
+}
+.mod-weight-panel td.toedit .edit-mod {
+    display: block;
+}
+/* 翻页 */
+.mod-weight-panel .pager{
+    display: block;
+    margin-top: 20px;
+}
+.mod-weight-panel .pager .page_info{
+    display: inline-block;
+}
+.mod-weight-panel .pager ul{
+    display: inline-block;
+    float: right;
+    margin-right: 100px;
+}
+.mod-weight-panel .pager ul li{
+    display: inline;
+    line-height: 20px;
+}
+.mod-weight-panel .pager .paginate_button{
+    padding: 3px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+.mod-weight-panel .pager .paginate_button:hover{
+    color: #01a6e8;
+}
+.mod-weight-panel .pager ul a.disabled,
+.mod-weight-panel .pager ul a.disabled:hover{
+    color: #999;
+    cursor: default;
+    background-color: transparent;
+}

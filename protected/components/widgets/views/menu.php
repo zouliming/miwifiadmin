@@ -3,7 +3,7 @@
         <ul>
             <?php
             $navCur = "";
-            foreach(menuWidget::$menuConfig as $key=>$info){
+            foreach($this->menuConfig as $key=>$info){
                     if($navCur=="" && $info['url']==$url){
                             $navCur = $info['class'];
                     }

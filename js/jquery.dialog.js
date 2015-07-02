@@ -35,7 +35,7 @@
             // 取消按钮文本
             cancelValue: '取消',
             // 内容宽度
-            width: '400',
+            width: 'auto',
             // 内容高度
             height: 'auto',
             // 内容与边界填充距离

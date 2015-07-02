@@ -15,7 +15,7 @@
       <![endif]-->
 
         <title>路由设置 - 小米路由器</title>
-        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>page.setting.css?v=0.0.3" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>original/page.setting.css?v=0.0.3" type="text/css" />
         <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>dialog.css?v=0.0.3" type="text/css" />
     </head>
 
@@ -218,8 +218,10 @@
             });
 
             $(global_event).on('init:bindxiaomi', function (evt, data) {
+	            console.log('aaaaaaa');
                     var mustbind = data.mustbind,
                         dlgContent = $('#xiaomibind').html();
+	            console.log('begin');
                     art.dialog({
                             title: '绑定小米账号',
                             content: dlgContent,
@@ -288,16 +290,17 @@
             });
             $(global_event).on('init:needbind', function (evt, data) {
                     var mustbind = global_event.mustBind || false;
-                    if (global_event.isBinded === false) {
-                            if (mustbind) {
+//
+//                    if (global_event.isBinded === false) {
+//                            if (mustbind) {
                                     $(global_event).trigger('init:bindxiaomi', {mustbind: mustbind});
-                            }
-                    }
+//                            }
+//                    }
             });
 
             $(function () {
                     //检测绑定状态
-                    // $(global_event).trigger('init:needbind');
+                    $(global_event).trigger('init:needbind');
                     //延迟显示用户信息
                     window.setTimeout(function () {
                             $(global_event).trigger('getLogininfo');
