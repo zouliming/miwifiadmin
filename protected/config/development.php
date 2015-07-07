@@ -66,6 +66,7 @@ return array(
 //                ),
                         ),
                 ),
+				/*
                 'cache' => array(
                         'class' => 'CMemCache',
                         'servers' => array(
@@ -74,7 +75,7 @@ return array(
                                         'port' => "11211",
                                 )
                         )
-                ),
+                ),*/
                 /*
                   "redis" => array(
                   "class" => "ext.redis.ARedisConnection",

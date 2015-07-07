@@ -193,6 +193,12 @@
 				return;
 			}
 		});
+                //二级不展开菜单，active样式效果
+		$('.nav-item h3 a').on('click', function (e) {
+			$('.nav-item').removeClass('active');
+			$(this.parentNode.parentNode).addClass('active');
+		});
+                //二级展开菜单，active样式效果
 		$('.nav-item li a').on('click', function (e) {
 			$('.nav-item li').removeClass('active');
 			$(this.parentNode).addClass('active');

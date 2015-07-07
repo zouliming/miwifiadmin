@@ -1,6 +1,6 @@
 <?php
 //$yii = dirname(__FILE__) . '/../yiiframework/yii.php';
-$yii = dirname(__FILE__) . '/../brandku/framework/yii.php';
+$yii = dirname(__FILE__) . '/../yiiframework/yii.php';
 
 //初始化为上线产品
 $environment = 'production';

@@ -15,7 +15,11 @@
         <![endif]-->
 
         <title>路由设置 - 小米路由器</title>
-        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>original/page.setting.css?v=0.0.3" type="text/css" />
+        <link rel="stylesheet" href="<?php echo Util::getCssUrl(); ?>page.setting.css?v=0.0.3" type="text/css" />
+        <?php
+        //因为弹出框会用到这个样式，在iframe里写无效，必须写在顶层
+        Yii::app()->clientScript->registerCssFile(Util::getCssUrl() . 'dialog.css');
+        ?>
     </head>
 
     <body>

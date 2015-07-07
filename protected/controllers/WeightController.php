@@ -30,7 +30,7 @@ class WeightController extends Controller {
                                 'users' => array('*'),
                         ),
                         array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                                'actions' => array('create', 'update', 'add'),
+                                'actions' => array('create', 'update', 'add','highChart'),
                                 'users' => array('@'),
                         ),
                         array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,14 +62,16 @@ class WeightController extends Controller {
                                 'href' => '/weight/highchart'
                         ),
                 );
-                $this->render('door');
+                $this->render('door',array(
+                        'active'=>'addWeight'
+                ));
         }
 
         public function actionApiData() {
                 $dataProvider = new CActiveDataProvider('Weight', array(
                         'criteria' => array(
                                 //'condition' => '',
-                                'order' => 'id desc',
+                                'order' => 'date asc',
                         ),
                 ));
                 $list = $dataProvider->getData();

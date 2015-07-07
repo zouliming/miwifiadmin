@@ -1,8 +1,7 @@
 <?php
 Yii::app()->clientScript
 	->registerCssFile(Util::getCssUrl() . 'page.default.css')
-	->registerCssFile(Util::getCssUrl() . 'page.mainmenu.css')
-	->registerCssFile(Util::getCssUrl() . 'dialog.css');
+	->registerCssFile(Util::getCssUrl() . 'page.mainmenu.css');
 ?>
 <div class="mod-mainmenu-panel">
 	<div class="section">
@@ -170,7 +169,7 @@ Yii::app()->clientScript
 							id = root.attr('data-id');
 						$.post('delete/' + id, {}, function (rsp) {
 							if (rsp.code == 0) {
-								modelMenu.menuStatus();
+								modelMenu.updateData();
 							} else {
 								alert(rsp.msg);
 							}

@@ -104,8 +104,7 @@ class MainmenuController extends Controller {
 			'msg' => ''
 		);
 		$model = $this->loadModel($id);
-		$model->enable = 0;
-		if($model->save()) {
+		if($model->delete()) {
 		} else {
 			$rp['code'] = 1;
 			$rp['msg'] = "删除失败";
