@@ -11,7 +11,7 @@ class SiteController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('login', 'test', 'blank', 'status', 'equipments', 'content', 'substance'),
+                'actions' => array('login', 'test', 'blank', 'status', 'equipments', 'content', 'substance','newframe'),
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -22,6 +22,10 @@ class SiteController extends Controller {
                 'users' => array('*'),
             ),
         );
+    }
+    public function actionNewFrame(){
+            $this->layout = "none";
+            $this->render('newFrame');
     }
 
     public function actionManage() {
