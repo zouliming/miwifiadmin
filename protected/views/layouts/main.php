@@ -50,7 +50,7 @@
 
                             <li class="div-line">|</li>
 
-                            <li><b><a href="#" target="_blank">访问官网</a></b></li>
+                            <li><b><a id="fullScreen" href="#">全屏</a></b></li>
                         </ul>
                     </div>
                 </div>

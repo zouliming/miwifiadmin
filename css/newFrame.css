@@ -1,0 +1,113 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2015-7-15, 17:30:29
+    Author     : liming.zou
+*/
+
+/*  RESET */
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, font, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, i, center, dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, audio, canvas, details, figcaption,
+            figure, footer, header, hgroup, mark, menu, meter, nav,
+            output, progress, section, summary, time, video {
+                    margin: 0;
+                    padding: 0;
+            }
+            body{
+                    background-color: blue;
+                    margin: 0px;
+                    padding: 0px;
+            }
+            .header{
+                    height: 60px;
+                    background-color: #16a085;
+                    width: 100%;
+            }
+            .container{
+                    width: 100%;
+                    background-color: #333;
+                    position: relative;
+            }
+            .sidebar{
+                    width: 220px;
+                    background: #333 none repeat scroll 0% 0%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+            }
+            .sidebar ul{
+                    border-top: 1px solid #000;
+                    border-bottom: 1px solid #484848;
+            }
+            .sidebar ul li{
+                    list-style: none;
+                    border-top: 1px solid #484848;
+                    border-bottom: 1px solid #000;
+            }
+            .sidebar ul li a{
+                    color: white;
+                    text-decoration: none;
+                    height: 49px;
+                    line-height: 49px;
+                    display: block;
+                    /*padding-left: 20px;*/
+            }
+            .sidebar ul li a span{
+                    margin-left: 20px;
+            }
+            .bd{
+                    margin-left: 220px;
+                    position: relative;
+                    background-color: #fff;
+            }
+            .asidebar{
+                    width: 220px;
+                    background-color: white;
+                    position: absolute;
+                    left: 0;
+            }
+            .asidebar ul{
+
+            }
+            .asidebar ul li{
+                    list-style: none;
+            }
+            .asidebar ul li a{
+                    height: 49px;
+                    line-height: 49px;
+                    color: black;
+                    text-decoration: none;
+                    background:#F2F2F2 none repeat scroll 0% 0%;
+                    text-indent: 20px;
+                    display: block;
+                    border-bottom: 1px solid #E5E5E5;
+            }
+            .main-content{
+                    margin-left: 220px;
+                    position: relative;
+                    min-height: 1000px;
+                    background-color: white;
+                    padding: 20px;
+                    border-left: 1px solid #E5E5E5;
+            }
+            .footer{
+                    text-align: center;
+                    margin: 0px;
+                    background-color: #ddd;
+                    padding: 10px 0px;
+                    font-size: 11px;
+                    color: #666;
+            }
+            .clear{
+                    clear: both;
+            }

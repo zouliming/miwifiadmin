@@ -85,6 +85,22 @@
 			return aes;
 		}
 	};
+        //全屏效果
+        $(global_event).on('fullScreen',function(evt,data){
+                $('#fullScreen').on('click', function (e) {
+			e.preventDefault();
+                        var sidebar = $("#nav .list");
+                        if(sidebar.hasClass('close')){
+                                $("#nav .list").removeClass('close').show();
+                                $("#bd").css({width:'980px','border-left':'220px solid #333'});
+                        }else{
+                                $("#nav .list").addClass("close").hide();
+                                $("#bd").css({width:'100%','border-left':'none'});
+                        }
+		});
+        });
+        $(global_event).trigger('fullScreen');
+        
 	//下载客户端
 	$(global_event).on('downloadclient', function (evt, data) {
 		var ModelClientDownload = (function () {
