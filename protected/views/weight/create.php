@@ -1,9 +1,24 @@
 <?php
 Yii::app()->clientScript
+	->registerCssFile(Util::getCssUrl() . 'jquery-ui.css')
 	->registerCssFile(Util::getCssUrl() . 'page.default.css')
 	->registerCssFile(Util::getCssUrl() . 'page.weight.css')
 	->registerCssFile(Util::getCssUrl() . 'dialog.css');
 ?>
+<style type="text/css">
+.ui-datepicker{font-size: 10px;}
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+</style>
 <div class="mod-weight-panel">
 	<div class="section">
 		<h4>记录您的体重</h4>
@@ -49,7 +64,7 @@ Yii::app()->clientScript
         </td>
         <td>
             <div class="read-mod">{$date}</div>
-            <div class="edit-mod"><input name="date" type="text" value="{$date}"></div>
+            <div class="edit-mod"><input name="date" type="text" value="{$date}" class="datetime"></div>
         </td>
         <td>
                 <div class="read-mod">
@@ -70,6 +85,10 @@ Yii::app()->clientScript
 $jsUrl = Util::getJsUrl();
 Yii::app()->clientScript
 	->registerCoreScript('jquery')
+	->registerScriptFile($jsUrl . 'jquery-ui-1.10.4.custom.min.js')
+	->registerScriptFile($jsUrl . 'jquery.ui.datepicker-zh-CN.js')
+	->registerScriptFile($jsUrl . 'jquery-ui-timepicker-addon.js')
+	->registerScriptFile($jsUrl . 'jquery-ui-timepicker-zh-CN.js')
 	->registerScriptFile($jsUrl . 'selectbeautify.js')
 	->registerScriptFile($jsUrl . 'qwrap.js')
 	->registerScriptFile($jsUrl . 'jquery.dialog.js')
@@ -117,6 +136,8 @@ Yii::app()->clientScript
 			$('body').delegate('.btn-editqos', 'click', function (e) {
 				e.preventDefault();
 				var root = $(e.target).parents('tr');
+                                $('.datetime').datetimepicker();
+                                console.log($('.datetime'));
 				root.find('td').each(function () {
 					$(this).addClass('toedit');
 				});
