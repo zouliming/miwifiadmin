@@ -68,13 +68,7 @@ class WeightController extends Controller {
         }
 
         public function actionApiData() {
-                $dataProvider = new CActiveDataProvider('Weight', array(
-                        'criteria' => array(
-                                //'condition' => '',
-                                'order' => 'date asc',
-                        ),
-                ));
-                $list = $dataProvider->getData();
+                $list = Weight::model()->findAll();
                 $result = array();
                 foreach ($list as $k => $v) {
                         $result['labels'][] = $v['date'];
