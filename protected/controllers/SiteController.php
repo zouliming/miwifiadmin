@@ -15,7 +15,7 @@ class SiteController extends Controller {
                                 'users' => array('*'),
                         ),
                         array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                                'actions' => array('index', 'indexView', 'logout', 'manage'),
+                                'actions' => array('index', 'indexView', 'logout', 'manage','unserialize'),
                                 'users' => array('@'),
                         ),
                         array('deny', // deny all users
@@ -138,5 +138,15 @@ class SiteController extends Controller {
                 $this->layout = "none";
                 $this->render('setting');
         }
+		public function actionUnserialize(){
+                $this->layout = "column1";
+				$data = "";
+				$result = "";
+				if(isset($_POST['data']) && $_POST['data']){
+					$result = unserialize($_POST['data']);
+					$data = $_POST['data'];
+				}
+                $this->render('unserialize',array('data'=>$data,'result'=>$result));
+		}
 
 }

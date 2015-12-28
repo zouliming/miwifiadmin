@@ -32,7 +32,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'original/page.manag
                                             <div class="name-edit"></div>
                                         </div>
                                         <p class="muted">已连接：59分30秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：0KB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：1.79GB
-                                            <br>IP地址：192.168.31.122&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：6C:40:08:8E:50:B0</p>
+                                            <br>IP地址：192.168.31.122&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -46,7 +46,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'original/page.manag
                            class="btn-offon btn-on act-data-disable"></a>
                     </td>
                 </tr>
-                <tr class="list-item">
+                <tr class="list-item">2015/12/28
                     <td class="s0">
                         <table>
                             <tbody>
@@ -56,13 +56,13 @@ Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'original/page.manag
                                     </td>
                                     <td class="s01">
                                         <div class="name">
-                                            <span class="name-show">徐晶-iPhone</span>
+                                            <span class="name-show">张三-iPhone</span>
                                             <a href="#" class="ico-rename act-edit"
-                                               data-name="徐晶-iPhone" data-mac="18:F6:43:8E:81:23"></a>
+                                               data-name="张三-iPhone" data-mac="18:F6:43:8E:81:23"></a>
                                             <div class="name-edit"></div>
                                         </div>
                                         <p class="muted">已连接：34分50秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：0KB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：3.15MB
-                                            <br>IP地址：192.168.31.195&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：18:F6:43:8E:81:23</p>
+                                            <br>IP地址：192.168.31.195&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -93,7 +93,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'original/page.manag
                                             <div class="name-edit"></div>
                                         </div>
                                         <p class="muted">已连接：1小时15分30秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：0KB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：161.88MB
-                                            <br>IP地址：192.168.31.190&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：F0:DB:E2:8E:7A:86</p>
+                                            <br>IP地址：192.168.31.190&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -118,13 +118,13 @@ Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'original/page.manag
                                     </td>
                                     <td class="s01">
                                         <div class="name">
-                                            <span class="name-show">徐晶的Pro</span>
+                                            <span class="name-show">张三的Pro</span>
                                             <a href="#" class="ico-rename act-edit"
-                                               data-name="徐晶的Pro" data-mac="D0:A6:37:EA:C9:D3"></a>
+                                               data-name="张三的Pro" data-mac="D0:A6:37:EA:C9:D3"></a>
                                             <div class="name-edit"></div>
                                         </div>
                                         <p class="muted">已连接：39分54秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：1.29MB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：413.16MB
-                                            <br>IP地址：192.168.31.107&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 2.4G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：D0:A6:37:EA:C9:D3</p>
+                                            <br>IP地址：192.168.31.107&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 2.4G&nbsp;&nbsp;|&nbsp;&nbsp;</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -155,7 +155,7 @@ Yii::app()->clientScript->registerCssFile(Util::getCssUrl().'original/page.manag
                                             <div class="name-edit"></div>
                                         </div>
                                         <p class="muted">已连接：21小时8分41秒&nbsp;&nbsp;|&nbsp;&nbsp;当前网速：0KB/秒&nbsp;&nbsp;|&nbsp;&nbsp;总流量：7.7MB
-                                            <br>IP地址：192.168.31.209&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;MAC地址：C8:F6:50:1A:03:C3</p>
+                                            <br>IP地址：192.168.31.209&nbsp;&nbsp;|&nbsp;&nbsp;连接类型：WiFi 5G&nbsp;&nbsp;|&nbsp;&nbsp;</p>
                                     </td>
                                 </tr>
                             </tbody>
