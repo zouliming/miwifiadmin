@@ -108,8 +108,8 @@ return array(
                         ),
                         array(
                                 'class' => 'status',
-                                'url' => '/site/status',
-                                'title' => '没用',
+                                'url' => '/site/unserialize',
+                                'title' => '反序列化',
                         ),
                         array(
                                 'class' => 'equipments',
